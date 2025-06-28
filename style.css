@@ -1,0 +1,969 @@
+/**
+ * Theme Name: Neo-Brutalist Dynamic
+ * Theme URI: https://johndoughstudios.com/
+ * Author: John Dough D'Angelo
+ * Author URI: https://johndoughstudios.com/
+ * Description: A fully responsive, neo-brutalist webpage using Space Grotesk, Phosphor Icons, and vibrant acid tones. Features a custom preloader, modern CSS layouts, and scroll-triggered animations.
+ * Version: 1.3 (with card hover modifications)
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Tags: neo-brutalism, responsive-layout, one-column, two-columns, custom-header, custom-menu, featured-images, block-editor-styles
+ * Text Domain: neobrutalist
+ */
+
+/* -------------------------------------------------------------------------- */
+/*                                  1. SETUP                                  */
+/* -------------------------------------------------------------------------- */
+:root {
+    /* Color Palette */
+    --color-acid-pink: #ff0055;
+    --color-acid-cyan: #12d8fa;
+    --color-acid-mint: #a6ffcb;
+    --color-bg: #050505;
+    --color-text: #f0f0f0;
+    --color-text-dark: #050505;
+    
+    /* Typography */
+    --font-primary: 'Space Grotesk', sans-serif;
+    
+    /* clamp() Fluid Font Sizes */
+    --fs-base: clamp(1rem, 0.9167rem + 0.2778vw, 1.2rem);
+    --fs-h1: clamp(2.5rem, 0.5rem + 10vw, 8rem);
+    --fs-h2: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+    --fs-h3: clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem);
+    
+    /* UI Elements */
+    --brutalist-border: 2px solid var(--color-text);
+    --brutalist-shadow: 4px 4px 0 var(--color-text);
+    --brutalist-shadow-hover: 6px 6px 0 var(--color-acid-pink);
+    --brutalist-shadow-card: 6px 6px 0 var(--color-text);
+    --brutalist-shadow-card-hover: 10px 10px 0 var(--color-acid-cyan);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: var(--fs-base);
+    line-height: 1.5;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#main-content {
+    opacity: 1; /* MODIFIED - This makes your content visible immediately */
+    transition: opacity 0.5s ease-in;
+}
+
+#main-content.loaded { opacity: 1; }
+a {
+    color: var(--color-acid-cyan);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: var(--color-acid-mint);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                2. PRELOADER                                */
+/* -------------------------------------------------------------------------- */
+#preloader {
+}
+#preloader.preloader-hidden {
+}
+.preloader-text {
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 3. HEADER                                  */
+/* -------------------------------------------------------------------------- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom: var(--brutalist-border);
+    background-color: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(10px);
+}
+.site-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-text);
+}
+.main-navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+.main-navigation a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.main-navigation a:hover {
+    color: var(--color-acid-cyan);
+}
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+}
+.hamburger-menu i {
+    font-size: 2rem;
+    color: var(--color-text);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                4. HERO SECTION                               */
+/* -------------------------------------------------------------------------- */
+.hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    background: 
+        linear-gradient(135deg, rgba(255, 0, 85, 0.8), rgba(18, 216, 250, 0.8)),
+        url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    background-color: var(--color-bg);
+}
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+.hero .headline {
+    font-size: var(--fs-h1);
+    line-height: 1;
+    font-weight: 700;
+    color: var(--color-text);
+    text-shadow: 2px 2px 0 var(--color-bg), 4px 4px 0 var(--color-bg);
+}
+.scroll-cue {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 2.5rem;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              5. CONTENT & GRID                             */
+/* -------------------------------------------------------------------------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+}
+.section-heading {
+    font-size: var(--fs-h2);
+    margin-bottom: 3rem;
+    text-align: center;
+    border-bottom: var(--brutalist-border);
+    padding-bottom: 1rem;
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+.project-card {
+    background-color: var(--color-bg);
+    border: var(--brutalist-border);
+    box-shadow: var(--brutalist-shadow-card);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    overflow: hidden;
+}
+.project-card:hover {
+    /* MODIFIED: Removed scale(1.03) to prevent the card from enlarging */
+    transform: translate(-5px, -5px); 
+    box-shadow: var(--brutalist-shadow-card-hover);
+}
+.card-image-wrapper {
+    position: relative; /* MODIFIED: Added for positioning the new gradient overlay */
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+/* ADDED: New gradient overlay effect */
+.card-image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 60%);
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+/* ADDED: Show the gradient overlay on hover */
+.project-card:hover .card-image-wrapper::after {
+    opacity: 1;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.project-card:hover .card-image-wrapper img {
+    transform: scale(1.1);
+}
+.card-content {
+    padding: 1.5rem;
+    position: relative;
+    /* ADDED: Ensure content is on top of the gradient overlay */
+    z-index: 2; 
+}
+.card-title {
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+.card-excerpt {
+    /* MODIFIED: These properties make the excerpt visible by default */
+    opacity: 0.8;
+    transform: translateY(0);
+    max-height: 10em; /* Gives enough room for the text */
+    
+    /* MODIFIED: Removed transition as it's no longer needed for a hover effect */
+    transition: none; 
+    
+    font-size: 0.9rem;
+    line-height: 1.4;
+    overflow: hidden;
+    text-transform: none;
+}
+/* REMOVED: This entire block is no longer needed as the excerpt is always visible.
+.project-card:hover .card-excerpt {
+    opacity: 0.8;
+    transform: translateY(0);
+    max-height: 10em; 
+}
+*/
+
+/* -------------------------------------------------------------------------- */
+/*                                6. UI ELEMENTS                              */
+/* -------------------------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--color-acid-mint);
+    color: var(--color-text-dark);
+    text-decoration: none;
+    font-weight: 700;
+    border: var(--brutalist-border);
+    box-shadow: var(--brutalist-shadow);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+}
+.btn:hover {
+    background-color: var(--color-acid-cyan);
+    transform: translate(-3px, -3px);
+    box-shadow: var(--brutalist-shadow-hover);
+}
+.btn.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+}
+.btn.btn-secondary:hover {
+    background-color: var(--color-acid-pink);
+    color: var(--color-text);
+    box-shadow: var(--brutalist-shadow-hover);
+}
+.btn:focus-visible {
+    outline: 3px solid var(--color-acid-cyan);
+    outline-offset: 4px;
+}
+
+/* --- NEW: SCROLL-TRIGGERED ANIMATIONS --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-fade-in-up {
+    opacity: 0; /* Set initial state for elements before JS adds the 'is-visible' class */
+}
+
+.anim-fade-in-up.is-visible {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+/* -------------------------------------------------------------------------- */
+/*                     6.6. ADVANCED CONTENT SECTIONS                         */
+/* -------------------------------------------------------------------------- */
+.section-subheading {
+    max-width: 750px;
+    margin: -2rem auto 2.5rem auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: none;
+    opacity: 0.9;
+}
+.section-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+.hero-intro {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-transform: none;
+    line-height: 1.6;
+}
+.hero-tagline {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, var(--color-acid-cyan), var(--color-acid-mint));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+.mission-content {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+.mission-content p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-transform: none;
+    margin-bottom: 1.5rem;
+}
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+.value-item {
+    border: var(--brutalist-border);
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+.value-item h4 {
+    font-size: 1.25rem;
+    color: var(--color-acid-cyan);
+    margin-bottom: 0.5rem;
+}
+.value-item p {
+    text-transform: none;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.service-column {
+    border: var(--brutalist-border);
+    padding: 2rem;
+}
+.service-column h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 1.5rem;
+}
+.service-list { list-style: none; padding: 0; }
+.service-list li {
+    text-transform: none;
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(240, 240, 240, 0.2);
+}
+.service-list li:last-child { border-bottom: none; }
+.client-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.client-profile-grid h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+.profile-list { list-style: none; padding-left: 0; }
+.profile-list li {
+    text-transform: none;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+.profile-list li::before {
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+.profile-dos li::before { content: '✓'; color: var(--color-acid-mint); }
+.profile-donts li::before { content: '✗'; color: var(--color-acid-pink); }
+.final-cta-section {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-top: var(--brutalist-border);
+    border-bottom: var(--brutalist-border);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                7. FOOTER                                   */
+/* -------------------------------------------------------------------------- */
+.site-footer-bottom {
+    border-top: var(--brutalist-border);
+}
+.site-footer-bottom .container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+.site-footer-bottom p {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.site-footer {
+    padding: 3rem 0;
+    border-top: var(--brutalist-border);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.site-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 2rem; /* Remove vertical padding from container */
+    text-align: center;
+}
+
+.social-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.social-links-list a {
+    color: var(--color-text);
+    font-size: 1.75rem; /* Icon size */
+    opacity: 0.8;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.social-links-list a:hover {
+    color: var(--color-acid-cyan);
+    opacity: 1;
+}
+
+.footer-copyright p,
+.footer-credit p {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.footer-credit a {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+    color: var(--color-acid-mint);
+}
+/* -------------------------------------------------------------------------- */
+/*                        8. WORDPRESS CORE BLOCK STYLES                      */
+/* -------------------------------------------------------------------------- */
+.alignwide {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.alignfull {
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              9. MEDIA QUERIES                              */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .site-header { padding: 1rem 1.5rem; }
+    .hamburger-menu { display: block; }
+    .main-navigation {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        visibility: hidden; /* Prevent interaction when off-screen */
+    }
+    .main-navigation.is-active {
+        transform: translateX(0);
+        visibility: visible;
+    }
+    .main-navigation ul {
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+    }
+    .main-navigation li {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .main-navigation.is-active li {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    /* Staggered animation for menu items */
+    .main-navigation.is-active li:nth-child(1) { transition-delay: 0.2s; }
+    .main-navigation.is-active li:nth-child(2) { transition-delay: 0.25s; }
+    .main-navigation.is-active li:nth-child(3) { transition-delay: 0.3s; }
+    .main-navigation.is-active li:nth-child(4) { transition-delay: 0.35s; }
+
+    .main-navigation a {
+        font-size: 1.8rem;
+        padding: 1rem;
+        display: block;
+    }
+    .project-grid, .values-grid, .services-grid, .client-profile-grid {
+        grid-template-columns: 1fr;
+    }
+    .container { padding: 4rem 1.5rem; }
+}/* -------------------------------------------------------------------------- */
+/*                        10. PAGE TEMPLATE STYLES                            */
+/* -------------------------------------------------------------------------- */
+.page-header {
+    padding: 8rem 0 2rem; /* Give some space from the top nav */
+    border-bottom: var(--brutalist-border);
+    text-align: center;
+}
+
+.entry-content .container p,
+.entry-content .container ul,
+.entry-content .container ol {
+    text-transform: none; /* Make regular page text sentence-case */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entry-content .container ul,
+.entry-content .container ol {
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+}/* -------------------------------------------------------------------------- */
+/*                         11. SERVICE TIERS TABLE                            */
+/* -------------------------------------------------------------------------- */
+.table-wrapper {
+    overflow-x: auto; /* Ensures table is responsive on small screens */
+    border: var(--brutalist-border);
+    box-shadow: var(--brutalist-shadow-card);
+    margin-top: 3rem;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+th, td {
+    padding: 1rem 1.5rem;
+    border-bottom: var(--brutalist-border);
+    text-transform: none;
+}
+th {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    background-color: rgba(255,255,255,0.05);
+    color: var(--color-acid-cyan);
+}
+td {
+    vertical-align: top;
+}
+tbody tr:last-child td {
+    border-bottom: none;
+}
+td:first-child {
+    font-weight: 700;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            12. LOGO GRID SECTION                           */
+/* -------------------------------------------------------------------------- */
+.logo-grid-section {
+    padding: 3rem 0;
+    /* Default dark background */
+    background-color: rgba(255, 255, 255, 0.03);
+    border-top: var(--brutalist-border);
+    border-bottom: var(--brutalist-border);
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid */
+    gap: 2.5rem;
+    align-items: center; /* Vertically center logos */
+    margin-top: 3rem;
+}
+
+.logo-grid img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(70%); /* Logos start as grayscale and slightly faded */
+    transition: filter 0.3s ease-out;
+}
+
+.logo-grid img:hover {
+    filter: grayscale(0%) opacity(100%); /* Logos become full color on hover */
+}
+
+/* -- STYLES FOR THE WHITE BACKGROUND VERSION -- */
+/* This will now correctly override the default dark style */
+.logo-grid-section.logo-grid-section--light {
+    background-color: #ffffff; /* White background */
+    border-top: 2px solid #050505; /* Dark top border */
+    border-bottom: 2px solid #050505; /* Dark bottom border */
+}
+
+/* Target the heading ONLY inside the light version of the section */
+.logo-grid-section.logo-grid-section--light .section-heading {
+    color: var(--color-bg); /* Dark heading text */
+    border-bottom-color: rgba(5, 5, 5, 0.2); /* Lighter bottom border for the heading */
+}
+/*                      13. LEADERSHIP & PARTNERS SECTIONS                    */
+/* -------------------------------------------------------------------------- */
+
+/* -- Leadership Section -- */
+.leadership-section {
+    padding: 3rem 0;
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 3rem;
+    margin-top: 3rem;
+    max-width: 1100px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leader-card {
+    text-align: center;
+}
+
+.leader-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: var(--brutalist-border);
+    box-shadow: var(--brutalist-shadow);
+}
+
+.leader-card h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.5rem;
+}
+
+.leader-card .leader-title {
+    color: var(--color-acid-cyan);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.leader-card p:not(.leader-title) {
+    text-transform: none;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* -- Partners Section -- */
+.partners-section {
+    padding: 4rem 0;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.partner-item {
+    border: 2px solid var(--color-bg);
+    padding: 2rem;
+    text-align: center;
+    background: #f8f8f8;
+}
+
+.partner-item img {
+    max-height: 40px;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+.partner-item h4 {
+    color: var(--color-bg);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.partner-item p {
+    color: var(--color-bg);
+    text-transform: none;
+    opacity: 0.8;
+}
+/* -------------------------------------------------------------------------- */
+/*                         14. SINGLE CASE STUDY PAGE                         */
+/* -------------------------------------------------------------------------- */
+.case-study-header {
+    min-height: 60vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-bottom: var(--brutalist-border);
+}
+
+.case-study-header .entry-title {
+    font-size: var(--fs-h1);
+    line-height: 1.1;
+    max-width: 900px;
+}
+
+.case-study-excerpt {
+    font-size: var(--fs-h3);
+    color: var(--color-acid-mint);
+    max-width: 750px;
+    margin: 1rem auto 0;
+    line-height: 1.4;
+    text-transform: none;
+}
+
+.case-study-content-area .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.case-study-main {
+    flex: 3; /* Takes up 3/4 of the space */
+    min-width: 300px;
+}
+
+.case-study-sidebar {
+    flex: 1; /* Takes up 1/4 of the space */
+    min-width: 280px;
+}
+
+.case-study-main h2, .case-study-main h3 {
+    margin-bottom: 1.5rem;
+    margin-top: 2.5rem;
+}
+.case-study-main p, .case-study-main li {
+    text-transform: none;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.project-info-box {
+    border: var(--brutalist-border);
+    padding: 2rem;
+    position: sticky; /* Sticks to the top as you scroll */
+    top: 120px;
+}
+
+.project-info-box h4 {
+    font-size: 1.5rem;
+    color: var(--color-acid-cyan);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 1rem;
+}
+
+.project-info-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-info-box li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-transform: none;
+}
+.project-info-box li strong {
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    color: var(--color-text);
+}
+.project-gallery img {
+    width: 100%;
+    height: auto; /* let it scale naturally */
+    object-fit: contain; /* or 'cover' if you want consistent width coverage */
+    display: block;
+    border: var(--brutalist-border);
+    box-shadow: var(--brutalist-shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* two columns */
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .project-gallery {
+        grid-template-columns: 1fr; /* stack on mobile */
+    }
+}
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-gallery figure {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border: var(--brutalist-border);
+    box-shadow: var(--brutalist-shadow-card);
+    background: rgba(255, 255, 255, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.5s ease-out;
+}
+
+.project-gallery figure.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-gallery figure:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--brutalist-shadow-card-hover);
+    border-color: var(--color-acid-cyan);
+}
+
+.project-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-gallery figure:hover img {
+    transform: scale(1.05);
+}
+
+/* Caption overlay */
+.project-gallery figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--color-acid-mint);
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease-out;
+}
+
+.project-gallery figure:hover figcaption {
+    opacity: 1;
+    transform: translateY(0);
+}
+.project-gallery figure {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.5s ease-out;
+}
+
+.project-gallery figure.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-gallery figure {
+  opacity: 1 !important;
+  transform: none !important;
+}

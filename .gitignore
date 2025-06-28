@@ -1,0 +1,8 @@
+.DS_Store
+__MACOSX/
+node_modules/
+*.log
+*.zip
+*.rtf
+read_me/
+
