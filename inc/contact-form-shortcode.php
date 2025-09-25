@@ -45,13 +45,13 @@ function csl_improved_contact_form_shortcode($atts = []) {
 
             <!-- Name and Email Row -->
             <div class="form-group">
-                <label>
+                <label data-required="true">
                     <input class="input" type="text" name="csl_name" required placeholder=" " autocomplete="name">
-                    <span>Full Name *</span>
+                    <span>Full Name</span>
                 </label>
-                <label>
+                <label data-required="true">
                     <input class="input" type="email" name="csl_email" required placeholder=" " autocomplete="email">
-                    <span>Email Address *</span>
+                    <span>Email Address</span>
                 </label>
             </div>
 
@@ -69,7 +69,7 @@ function csl_improved_contact_form_shortcode($atts = []) {
 
             <!-- Project Type and Budget Row -->
             <div class="form-group">
-                <label>
+                <label data-required="true">
                     <select class="input" name="csl_project_type" required>
                         <option value="" disabled selected hidden>Select project type…</option>
                         <option value="website">Website Design & Development</option>
@@ -80,10 +80,10 @@ function csl_improved_contact_form_shortcode($atts = []) {
                         <option value="packaging">Product & Packaging Design</option>
                         <option value="other">Other / Multiple Services</option>
                     </select>
-                    <span>Project Type *</span>
+                    <span>Project Type</span>
                 </label>
                 
-                <label>
+                <label data-required="true">
                     <select class="input" name="csl_budget" required>
                         <option value="" disabled selected hidden>Select investment range…</option>
                         <option value="under-5k">Under $5,000</option>
@@ -93,13 +93,13 @@ function csl_improved_contact_form_shortcode($atts = []) {
                         <option value="50k-plus">$50,000+</option>
                         <option value="lets-discuss">Let's discuss</option>
                     </select>
-                    <span>Investment Range *</span>
+                    <span>Investment Range</span>
                 </label>
             </div>
 
             <!-- Timeline and Experience Row -->
             <div class="form-group">
-                <label>
+                <label data-required="true">
                     <select class="input" name="csl_timeline" required>
                         <option value="" disabled selected hidden>Select timeline…</option>
                         <option value="asap">ASAP (Rush project)</option>
@@ -109,7 +109,7 @@ function csl_improved_contact_form_shortcode($atts = []) {
                         <option value="planning">Planning phase</option>
                         <option value="flexible">Flexible timing</option>
                     </select>
-                    <span>Timeline *</span>
+                    <span>Timeline</span>
                 </label>
                 
                 <label>
@@ -144,9 +144,9 @@ function csl_improved_contact_form_shortcode($atts = []) {
 
             <!-- Project Description -->
             <div class="form-group full-width">
-                <label>
+                <label data-required="true">
                     <textarea class="input" name="csl_message" rows="4" required placeholder=" "></textarea>
-                    <span>Tell us about your project, goals, and what success looks like *</span>
+                    <span>Tell us about your project, goals, and what success looks like</span>
                 </label>
             </div>
 
@@ -430,11 +430,11 @@ function csl_send_confirmation_email($data) {
     $subject = "Thanks for your inquiry, {$data['name']}! We'll be in touch soon.";
     
     $message = "Hi {$data['name']},\n\n";
-    $message .= "Thanks for reaching out to Case Study Labs! We received your inquiry about {$data['project_type']} and we're excited to learn more about your project.\n\n";
+    $message .= "Thanks for reaching out to Case Study Labs! We received your inquiry about {$data['project_type']} and we are excited to learn more about your project.\n\n";
     $message .= "What's Next:\n";
-    $message .= "• We'll review your project details within 24 hours\n";
-    $message .= "• If we're a good fit, we'll schedule a discovery call\n";
-    $message .= "• We'll provide a custom proposal and timeline\n\n";
+    $message .= "• We will review your project details within 24 hours\n";
+    $message .= "• If we are a good fit, we will schedule a discovery call\n";
+    $message .= "• We will provide a custom proposal and timeline\n\n";
     $message .= "In the meantime, feel free to:\n";
     $message .= "• Check out our case studies: " . home_url('/case-studies') . "\n";
     $message .= "• Learn about our process: " . home_url('/our-process') . "\n";
@@ -463,7 +463,7 @@ function csl_thank_you_content_shortcode($atts = []) {
     // Customize content based on lead score
     if ($lead_score >= 80) {
         $title = 'High-Priority Inquiry Received!';
-        $message = 'Thank you for your detailed inquiry! Based on your project details, we're very excited to discuss this opportunity. Expect a call from our team within 4-6 hours.';
+        $message = 'Thank you for your detailed inquiry! Based on your project details, we are very excited to discuss this opportunity. Expect a call from our team within 4-6 hours.';
         $priority_class = 'high-priority';
         $cta_text = 'Schedule Priority Call';
     } elseif ($lead_score >= 50) {
@@ -488,7 +488,7 @@ function csl_thank_you_content_shortcode($atts = []) {
         <?php if ($lead_score >= 70): ?>
         <div class="priority-notice glass-panel mt-6 mb-6">
             <h3 class="h4 mb-2">🚀 Priority Status</h3>
-            <p class="text-sm">Your project profile indicates a high-value opportunity. We're fast-tracking your inquiry for immediate review.</p>
+            <p class="text-sm">Your project profile indicates a high-value opportunity. We are fast-tracking your inquiry for immediate review.</p>
         </div>
         <?php endif; ?>
         
@@ -506,7 +506,7 @@ function csl_thank_you_content_shortcode($atts = []) {
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h4>Review & Analysis</h4>
-                        <p>We'll analyze your project requirements and budget</p>
+                        <p>We will analyze your project requirements and budget</p>
                     </div>
                 </div>
                 <div class="step">
