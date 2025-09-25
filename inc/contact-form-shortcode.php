@@ -46,23 +46,23 @@ function csl_improved_contact_form_shortcode($atts = []) {
             <!-- Name and Email Row -->
             <div class="form-group">
                 <label data-required="true">
-                    <input class="input" type="text" name="csl_name" required placeholder=" " autocomplete="name">
+                    <input class="input" type="text" name="csl_name" required autocomplete="name">
                     <span>Full Name</span>
                 </label>
                 <label data-required="true">
-                    <input class="input" type="email" name="csl_email" required placeholder=" " autocomplete="email">
+                    <input class="input" type="email" name="csl_email" required autocomplete="email">
                     <span>Email Address</span>
                 </label>
             </div>
 
             <!-- Phone and Company Row -->
             <div class="form-group">
-                <label>
-                    <input class="input" type="tel" name="csl_phone" placeholder=" " autocomplete="tel">
-                    <span>Phone (optional)</span>
+                <label data-required="true">
+                    <input class="input" type="tel" name="csl_phone" required autocomplete="tel">
+                    <span>Phone Number</span>
                 </label>
                 <label>
-                    <input class="input" type="text" name="csl_company" placeholder=" " autocomplete="organization">
+                    <input class="input" type="text" name="csl_company" autocomplete="new-password" placeholder="" spellcheck="false">
                     <span>Company / Organization (optional)</span>
                 </label>
             </div>
@@ -145,7 +145,7 @@ function csl_improved_contact_form_shortcode($atts = []) {
             <!-- Project Description -->
             <div class="form-group full-width">
                 <label data-required="true">
-                    <textarea class="input" name="csl_message" rows="4" required placeholder=" "></textarea>
+                    <textarea class="input" name="csl_message" rows="4" required></textarea>
                     <span>Tell us about your project, goals, and what success looks like</span>
                 </label>
             </div>
@@ -160,38 +160,15 @@ function csl_improved_contact_form_shortcode($atts = []) {
     </div>
 
     <script>
-    // Enhanced form handling
     document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('.csl-form');
-        const submitBtn = form.querySelector('.submit');
-        const submitText = submitBtn.querySelector('.submit-text');
-        const submitLoading = submitBtn.querySelector('.submit-loading');
-        
-        // Enhanced form submission with loading state
-        form.addEventListener('submit', function(e) {
-            submitBtn.disabled = true;
-            submitText.style.display = 'none';
-            submitLoading.style.display = 'inline';
-            
-            // Add form validation and AJAX submission here if needed
-        });
-        
-        // Enhanced floating labels
-        const inputs = form.querySelectorAll('.input');
-        inputs.forEach(input => {
-            // Check if input has value on load
-            if (input.value.trim() !== '') {
-                input.classList.add('has-value');
-            }
-            
-            input.addEventListener('input', function() {
-                if (this.value.trim() !== '') {
-                    this.classList.add('has-value');
-                } else {
-                    this.classList.remove('has-value');
-                }
+        const companyField = document.querySelector('input[name="csl_company"]');
+        if (companyField) {
+            companyField.addEventListener('input', function() {
+                // Force clear any browser autocomplete styling
+                this.style.color = '#ffffff';
+                this.style.background = 'rgba(255, 255, 255, 0.1)';
             });
-        });
+        }
     });
     </script>
 
@@ -239,7 +216,7 @@ function csl_handle_contact_form_submission() {
     ];
     
     // Validate required fields
-    $required_fields = ['name', 'email', 'project_type', 'budget', 'timeline', 'message'];
+    $required_fields = ['name', 'email', 'phone', 'project_type', 'budget', 'timeline', 'message'];
     $errors = [];
     
     foreach ($required_fields as $field) {
