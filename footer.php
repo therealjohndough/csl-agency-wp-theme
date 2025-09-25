@@ -1,65 +1,86 @@
 <?php
 /**
- * The template for displaying the footer with a three-row layout.
+ * The template for displaying the footer
  *
- * @package Neo-Brutalist Dynamic
+ * @package Aura-Grid_Machina_Enhanced
  */
 ?>
+    </div><!-- #page-content -->
 
-    <footer id="colophon" class="site-footer">
-        <div class="container">
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
 
-            <!-- Row 1: Social Media Links -->
-            <div class="footer-row footer-socials">
-                <ul class="social-links-list">
-                    <li>
-                        <a href="https://www.instagram.com/case_study_labs/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Case Study Labs on Instagram', 'neobrutalist'); ?>">
-                            <i class="ph-bold ph-instagram-logo"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/company/case-study-labs" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Case Study Labs on LinkedIn', 'neobrutalist'); ?>">
-                            <i class="ph-bold ph-linkedin-logo"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Row 2: Copyright Information -->
-            <div class="footer-row footer-copyright">
-                <p>
-                    <?php
-                    printf(
-                        /* translators: 1: Current Year, 2: Site Name. */
-                        esc_html__( '© %1$s %2$s. ALL RIGHTS RESERVED.', 'neobrutalist' ),
-                        date_i18n( 'Y' ),
-                        get_bloginfo( 'name' )
-                    );
-                    ?>
-                </p>
-            </div>
-
-            <!-- Row 3: Designer Credit -->
-            <div class="footer-row footer-credit">
-                <p>
-                    <?php
-                    printf(
-                        wp_kses_post( /* Allows the <a> tag */
-                            /* translators: %s: a link to the designer's website. */
-                            __( 'DESIGN & DEV BY %s', 'neobrutalist' )
-                        ),
-                        '<a href="https://www.johndoughstudios.com" target="_blank" rel="noopener noreferrer">JOHN DOUGH D\'ANGELO</a>'
-                    );
-                    ?>
-                </p>
-            </div>
-
+      <!-- Left: Brand + Newsletter -->
+      <div class="footer-left">
+        <div class="footer-brand-info">
+          <div class="site-logo">
+            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+              <?php if (has_custom_logo()) { the_custom_logo(); } else { bloginfo('name'); } ?>
+            </a>
+          </div>
+          <p class="footer-tagline">Strategic design and brand elevation for industry leaders. Made to Inspire.</p>
         </div>
-    </footer>
 
-</div><!-- #main-content -->
+        <div id="newsletter-signup" class="footer-newsletter">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p class="footer-newsletter-intro">Join our network for insights on branding, cannabis culture, and design strategy.</p>
+          <div class="footer-newsletter-form">
+            <?php echo do_shortcode('[csl_footer_signup]'); ?>
+          </div>
+        </div>
+      </div>
 
-<?php wp_footer(); ?>
+      <!-- Right: Explore + Services + Connect -->
+      <div class="footer-links-blocks">
 
-</body>
+        <nav class="footer-column" aria-labelledby="footer-explore">
+          <h4 id="footer-explore" class="footer-heading">Explore</h4>
+          <ul class="footer-links-list">
+            <li><a href="<?php echo esc_url(home_url('/studio')); ?>">About The Studio</a></li>
+            <li><a href="<?php echo esc_url(home_url('/services/')); ?>">Our Services</a></li>
+            <li><a href="<?php echo esc_url(home_url('/services#pricing')); ?>">Pricing</a></li>
+            <li><a href="<?php echo esc_url(home_url('/case-studies')); ?>">Case Studies</a></li>
+            <li><a href="<?php echo esc_url(home_url('/contact')); ?>">Work With Us</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-column" aria-labelledby="footer-services">
+          <h4 id="footer-services" class="footer-heading">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="<?php echo esc_url(home_url('/services/strategy/')); ?>">Strategy</a></li>
+            <li><a href="<?php echo esc_url(home_url('/services/branding-production/')); ?>">Branding &amp; Production</a></li>
+            <li><a href="<?php echo esc_url(home_url('/services/web-design/')); ?>">Web Design</a></li>
+            <li><a href="<?php echo esc_url(home_url('/services/content-social/')); ?>">Content &amp; Social</a></li>
+            <li><a href="<?php echo esc_url(home_url('/services/media-buying/')); ?>">Media Buying</a></li>
+            <li><a href="<?php echo esc_url(home_url('/services/lifecycle-marketing/')); ?>">Lifecycle Marketing</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-column" aria-labelledby="footer-connect">
+          <h4 id="footer-connect" class="footer-heading">Connect</h4>
+          <ul class="footer-links-list">
+            <li><a href="mailto:dough@casestudy-labs.com">dough@casestudy-labs.com</a></li>
+            <li><a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" rel="noopener">Schedule a Discovery Call</a></li>
+            <li><a href="https://linkedin.com/company/case-study-labs" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://instagram.com/case_study_labs" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <p>
+        © <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. <?php _e('All rights reserved.', 'auragrid'); ?>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="<?php echo esc_url(home_url('/privacy-policy')); ?>">Privacy</a>
+      </p>
+        </div>
+
+        
+</footer>
+
+    <?php wp_footer(); ?>
+  </body>
 </html>

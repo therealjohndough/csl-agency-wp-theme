@@ -1,0 +1,48 @@
+/* ============================================================================
+   DARK THEME VARIANT
+   Theme-specific color mappings for dark mode
+   ============================================================================ */
+
+[data-theme="dark"],
+:root {
+    /* ========================================
+       SEMANTIC COLOR MAPPINGS - DARK THEME
+       ======================================== */
+    
+    /* Surface Colors (Dark Theme) */
+    --color-bg-primary: #0f0f0f;      /* Page background */
+    --color-bg-secondary: #1a1a1a;    /* Card/panel background */
+    --color-bg-tertiary: #2a2a2a;     /* Elevated surfaces */
+    --color-bg-inverse: #ffffff;      /* Light surfaces for contrast */
+    
+    /* Text Colors (Dark Theme) */
+    --color-text-primary: #ffffff;           /* Main text */
+    --color-text-secondary: #a3a3a3;        /* Supporting text */
+    --color-text-tertiary: #737373;         /* Subtle text */
+    --color-text-inverse: #0f0f0f;          /* Text on light backgrounds */
+    --color-text-placeholder: #525252;      /* Placeholder text */
+    
+    /* Border Colors (Dark Theme) */
+    --color-border-primary: rgba(255, 255, 255, 0.1);
+    --color-border-secondary: rgba(255, 255, 255, 0.05);
+    --color-border-focus: var(--color-primary-500);
+    
+    /* Interactive States (Dark Theme) */
+    --color-hover: rgba(255, 255, 255, 0.05);
+    --color-active: rgba(255, 255, 255, 0.1);
+    --color-focus: rgba(249, 115, 22, 0.2);
+    
+    /* Glass Effect (Dark Theme) */
+    --glass-bg-light: rgba(255, 255, 255, 0.05);
+    --glass-bg-medium: rgba(255, 255, 255, 0.1);
+    --glass-bg-strong: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
+    
+    /* Shadows (Dark Theme) */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 1px 2px 0 var(--shadow-color);
+    --shadow-base: 0 1px 3px 0 var(--shadow-color), 0 1px 2px 0 var(--shadow-color);
+    --shadow-md: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
+    --shadow-lg: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
+}

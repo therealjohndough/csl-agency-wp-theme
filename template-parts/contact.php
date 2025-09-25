@@ -2,44 +2,86 @@
 /**
  * Template Name: Contact Page
  *
- * @package Neo-Brutalist_Dynamic
+ * @package Aura-Grid_Machina_Enhanced
  */
 
 get_header(); ?>
 
-<main id="primary" class="site-main">
+<main id="main-content" role="main" aria-label="<?php esc_attr_e('Contact page main content', 'auragrid'); ?>">
 
+  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <header class="page-header">
-            <div class="container">
-                <h1 class="entry-title section-heading anim-fade-in-up">Work With Us</h1>
-                <p class="section-subheading anim-fade-in-up" style="max-width: 650px;">
-                    Let’s build something iconic. Start your next cannabis or lifestyle branding project with Case Study Labs today.
-                </p>
+
+      <header class="container-narrow text-center section-pad-top section-pad-bottom-sm">
+        <h1 class="section-heading anim-reveal">
+          <?php _e('Work With Us', 'auragrid'); ?>
+        </h1>
+        <p class="anim-reveal text-secondary max-measure delay-100">
+          <?php _e('Let’s build something iconic. Start your next cannabis or lifestyle branding project with Case Study Labs today.', 'auragrid'); ?>
+        </p>
+      </header>
+
+      <div class="container">
+        <div class="split-section split-60-40">
+
+          <!-- Left: Form -->
+          <section class="split-content anim-slide-left" aria-labelledby="inquiry-form-title">
+            <h2 id="inquiry-form-title" class="h3 mb-2">
+              <?php _e('Project Inquiry Form', 'auragrid'); ?>
+            </h2>
+
+            <div class="glass-panel">
+              <?php
+                // Render our improved contact form
+                echo do_shortcode('[csl_contact_form_improved]');
+
+                // Optional: page content above/below the form from WP editor
+                the_content();
+              ?>
             </div>
-        </header>
+          </section>
 
-<div class="entry-content">
-    <div class="container" style="max-width: 800px;">
+          <!-- Right: Direct Contact Info -->
+          <aside class="split-content anim-slide-right" aria-labelledby="direct-contact-title">
+            <h2 id="direct-contact-title" class="h3 mb-2">
+              <?php _e('Direct Contact', 'auragrid'); ?>
+            </h2>
 
-        <?php
-        // Render the SureForm
-        echo do_shortcode("[sureforms id='85']");
+            <div class="glass-panel">
+              <p><?php _e('Prefer to send a direct email or schedule a call? Use the links below.', 'auragrid'); ?></p>
 
-        // Optional: Also render content from the WP editor if you’re using it
-        the_content();
-        ?>
+              <ul class="list-unstyled stack-16">
+                <li>
+                  <strong class="contact-label">
+                    <?php _e('Email Us:', 'auragrid'); ?>
+                  </strong>
+                  <a href="mailto:dough@casestudylabs.com">dough@casestudylabs.com</a>
+                </li>
 
-    </div>
-</div>
+                <li>
+                  <strong class="contact-label">
+                    <?php _e('Book a Call:', 'auragrid'); ?>
+                  </strong>
+                  <a href="https://calendar.app.google/z1veEHms9x3RJAT79" rel="noopener">
+                    <?php _e('Schedule a Discovery Session', 'auragrid'); ?>
+                  </a>
+                </li>
+
+                <li class="mt-16">
+                  <a href="/services" class="btn btn-accent btn-block">
+                    <?php _e('View Our Services', 'auragrid'); ?>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+        </div><!-- .split-section -->
+      </div><!-- .container -->
 
     </article>
-
-    <?php 
-    // You can reuse the final CTA block for extra emphasis at the bottom.
-    get_template_part('template-parts/block', 'contact'); 
-    ?>
+  <?php endwhile; endif; ?>
 
 </main>
 
-<?php get_footer(); ?>
+<?php get_footer();

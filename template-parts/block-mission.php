@@ -1,14 +1,27 @@
-<!-- MISSION SECTION -->
-<section id="mission" class="mission-section">
-    <div class="container">
-        <h2 class="section-heading anim-fade-in-up"><?php _e('Case Study Labs: Built to Inspire.', 'neobrutalist'); ?></h2>
-        <div class="mission-content anim-fade-in-up">
-            <p><?php _e('We’re not just a branding agency. We’re your strategic creative partner—trusted by category leaders and next-gen founders who demand more from their brand.', 'neobrutalist'); ?></p>
-            <p><?php _e('Our mission is to elevate the creative standard in cannabis and emerging industries—one brand, one drop, one legacy at a time.', 'neobrutalist'); ?></p>
+<!-- ======================================================================== -->
+<!-- MISSION (SPLIT) SECTION -->
+<!-- ======================================================================== -->
+<section id="mission" class="container">
+    <div class="split-section reverse">
+
+        <!-- Main Content Column -->
+        <div class="split-content anim-slide-left">
+            <h2 class="h3 mb-2" style="text-transform: uppercase; color: var(--color-primary); letter-spacing: 0.1em;"><?php _e('Our Mission', 'auragrid'); ?></h2>
+            <h3 class="h2 mb-2"><?php _e('Case Study Labs: Built to Inspire.', 'auragrid'); ?></h3>
+            <p class="text-secondary"><?php _e('We’re not just a branding agency. We’re your strategic creative partner—trusted by category leaders and next-gen founders who demand more from their brand.', 'auragrid'); ?></p>
+            
+            <div class="mt-3">
+                <a href="#" class="btn"><?php _e('Meet the Founders', 'auragrid'); ?></a>
+                <a href="#" class="btn btn-accent"><?php _e('Explore the Culture Code', 'auragrid'); ?></a>
+            </div>
         </div>
-        <div class="section-cta-group anim-fade-in-up">
-            <a href="#" class="btn"><?php _e('Meet the Founders', 'neobrutalist'); ?></a>
-            <a href="#" class="btn btn-secondary"><?php _e('Explore the Culture Code', 'neobrutalist'); ?></a>
+        
+        <!-- Visual/Quote Column -->
+        <div class="split-visual anim-slide-right">
+            <div class="glass-panel">
+                <blockquote><?php _e('One brand, one drop, one legacy at a time.', 'auragrid'); ?></blockquote>
+            </div>
         </div>
+
     </div>
 </section>

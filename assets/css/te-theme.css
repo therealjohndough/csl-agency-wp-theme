@@ -1,0 +1,415 @@
+/* ========================================
+   TEENAGE ENGINEERING DARK THEME
+   Built on existing Case Study Labs architecture
+   Uses Manrope font family - Dark theme only
+   ======================================== */
+
+/* Import Manrope font */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+/* Dark theme only */
+:root {
+  /* TE color palette - Dark theme */
+  --te-bg-primary: #1a1a1a;
+  --te-bg-secondary: #2d2d2d;
+  --te-bg-surface: #171717;
+  
+  --te-surface-light: #c7c3c0;
+  --te-surface-medium: #999999;
+  --te-surface-dark: #2a2a2a;
+  
+  --te-text-primary: #ffffff;
+  --te-text-secondary: #c7c3c0;
+  --te-text-muted: #999999;
+  --te-text-inverse: #2a2a2a;
+  
+  --te-accent-orange: #ff4500;
+  --te-accent-red: #cc3300;
+  
+  /* Override existing font variables with Manrope */
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-primary: 'Manrope', sans-serif;
+  
+  /* TE Button shadows for dark theme */
+  --te-shadow-raised: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+  --te-shadow-pressed: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   GLOBAL THEME UPDATES
+   ======================================== */
+
+body {
+  background: var(--te-bg-primary);
+  color: var(--te-text-primary);
+  font-family: var(--font-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Update existing background grid for dark theme */
+body::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Typography updates with Manrope */
+h1, h2, h3, h4, h5, h6,
+.section-heading {
+  font-family: var(--font-primary);
+  color: var(--te-text-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   TE BUTTON SYSTEM
+   ======================================== */
+
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-accent {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  border-radius: 3px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Light button (primary) */
+.btn,
+.btn-primary {
+  background: var(--te-surface-light);
+  color: var(--te-text-inverse);
+  box-shadow: var(--te-shadow-raised);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active,
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--te-shadow-pressed);
+}
+
+/* Orange accent button */
+.btn-accent {
+  background: var(--te-accent-orange);
+  color: white;
+  box-shadow: var(--te-shadow-raised);
+}
+
+.btn-accent:hover {
+  background: #ff5722;
+  transform: translateY(-1px);
+}
+
+.btn-accent:active {
+  background: #e63900;
+  transform: translateY(0);
+  box-shadow: var(--te-shadow-pressed);
+}
+
+/* Dark button */
+.btn-secondary {
+  background: var(--te-surface-dark);
+  color: white;
+  box-shadow: var(--te-shadow-raised);
+}
+
+.btn-secondary:hover {
+  background: #3a3a3a;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  background: #1a1a1a;
+  transform: translateY(0);
+  box-shadow: var(--te-shadow-pressed);
+}
+
+/* ========================================
+   ENHANCED COMPONENTS
+   ======================================== */
+
+/* Site header updates */
+.site-header {
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* Navigation button enhancements */
+.main-navigation a {
+  color: var(--te-text-primary);
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.main-navigation a::before {
+  background: var(--te-surface-light);
+  box-shadow: var(--te-shadow-raised);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+/* Glass panels */
+.glass-panel {
+  background: var(--te-bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--te-text-primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Service categories */
+.service-category {
+  background: var(--te-bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: var(--te-shadow-raised);
+  transition: all 0.15s ease-out;
+  text-align: center;
+}
+
+.service-category:hover {
+  transform: translateY(-2px);
+}
+
+.service-title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  color: var(--te-text-primary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.service-text {
+  color: var(--te-text-secondary);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+/* Leader cards */
+.leader-card {
+  background: var(--te-bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: var(--te-shadow-raised);
+  transition: all 0.15s ease-out;
+  text-align: center;
+}
+
+.leader-card:hover {
+  transform: translateY(-2px);
+}
+
+.leader-name {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  color: var(--te-text-primary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.leader-title {
+  color: var(--te-accent-orange);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+/* Project cards */
+.project-card {
+  background: var(--te-bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  box-shadow: var(--te-shadow-raised);
+  overflow: hidden;
+  transition: all 0.15s ease-out;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  background: var(--te-bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  color: var(--te-text-primary);
+  font-family: var(--font-primary);
+  transition: all 0.15s ease, background-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--te-accent-orange);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.2);
+}
+
+/* Table support */
+.glass-table-container {
+  background: var(--te-bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-table th {
+  background: var(--te-surface-dark);
+  color: white;
+}
+
+.glass-table td {
+  color: var(--te-text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   MOBILE FIXES & SINGLE CASE STUDY
+   ======================================== */
+
+/* Prevent mobile layout shift during animations */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.7rem;
+    /* Prevent width changes during hover */
+    width: 100%;
+    max-width: 280px;
+    box-sizing: border-box;
+  }
+  
+  /* Grid containers to prevent shifting */
+  .services-grid,
+  .leadership-grid,
+  .project-grid {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Animation elements should not affect layout */
+  .anim-reveal,
+  .anim-slide-left,
+  .anim-slide-right {
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Single case study template fixes */
+.single-casestudy {
+  min-height: 100vh;
+  padding-bottom: 4rem; /* Space before footer */
+}
+
+.single-casestudy .container,
+.single-casestudy .container-narrow {
+  padding-bottom: 2rem;
+}
+
+/* Case study content area */
+.case-study-content {
+  background: rgba(23, 23, 23, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Gallery containers */
+.project-gallery {
+  background: rgba(23, 23, 23, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+}
+
+.project-gallery img {
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Improve text readability in single posts */
+.single-casestudy h1,
+.single-casestudy h2,
+.single-casestudy h3 {
+  color: var(--te-text-primary);
+  margin-bottom: 1rem;
+}
+
+.single-casestudy p {
+  color: var(--te-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Footer spacing fix */
+.site-footer {
+  margin-top: 4rem;
+  background: rgba(23, 23, 23, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Ensure content doesn't run into footer */
+.site-content {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .case-study-content {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .single-casestudy {
+    padding-bottom: 3rem;
+  }
+}

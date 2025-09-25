@@ -1,169 +1,246 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Front Page template
+ */
+get_header();
 
-<main>
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content fade-in-up">
-            <!-- ACF: Hero Headline -->
-            <h1 class="headline">Where Taste Drives Growth.</h1>
-            
-            <!-- ACF: Hero Subheading -->
-            <p class="hero-subheading" style="font-size: var(--fs-h3); line-height: 1.3;">Strategic design and brand elevation for cannabis and lifestyle leaders.</p>
+/* ---------- Helper ---------- */
+$section = function( $id, $callback ) {
+  if ( get_theme_mod( "csl_{$id}_show", true ) ) { $callback(); }
+};
+?>
 
-            <!-- ACF: Hero Introduction Paragraph -->
-            <p class="hero-intro">We empower premium cannabis and lifestyle brands with creative that inspires culture, commands attention, and drives revenue.</p>
+<main id="main-content">
+<?php
+/* ---------- 1. Hero ---------- */
+$section( 'hero', function() { ?>
+  <section class="hero">
+    <div class="hero-content anim-reveal">
+      <h1 class="headline" data-text="<?php echo esc_attr( get_theme_mod( 'csl_hero_headline', 'Made To Inspire' ) ); ?>">
+        <?php echo esc_html( get_theme_mod( 'csl_hero_headline', 'Made To Inspire' ) ); ?>
+      </h1>
+      <p class="hero-intro">
+        <?php echo esc_html( get_theme_mod( 'csl_hero_intro', 'We empower innovative brands with strategic design...' ) ); ?>
+      </p>
+      <div class="hero-cta-group">
+        <a href="<?php echo esc_url( get_theme_mod( 'csl_hero_cta1_link', '#work' ) ); ?>" class="btn">
+          <?php echo esc_html( get_theme_mod( 'csl_hero_cta1_text', 'See Our Work' ) ); ?>
+        </a>
+        <a href="<?php echo esc_url( get_theme_mod( 'csl_hero_cta2_link', '/contact' ) ); ?>" class="btn btn-accent">
+          <?php echo esc_html( get_theme_mod( 'csl_hero_cta2_text', 'Start a Project' ) ); ?>
+        </a>
+      </div>
+    </div>
+  </section>
+<?php } );
 
-            <!-- ACF: Hero Tagline -->
-            <p class="hero-tagline">Clarity is currency. Taste is strategy. Growth is the outcome.</p>
-            
-            <div class="hero-cta-group anim-fade-in-up" style="animation-delay: 0.4s;">
-                <!-- ACF: Hero Button 1 -->
-                <a href="<?php echo esc_url(home_url('/case-studies')); ?>" class="btn"><?php _e('See Our Work', 'neobrutalist'); ?></a>
-                <!-- ACF: Hero Button 2 -->
-                <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn btn-secondary"><?php _e('Work With Us', 'neobrutalist'); ?></a>
-            </div>
+/* ---------- Logo Grid (Brands) ---------- */
+$section( 'logo_grid', function() { ?>
+  <section class="container-narrow">
+    <h2 class="section-heading anim-reveal">
+      <?php echo esc_html( get_theme_mod( 'csl_logo_grid_heading', "Brands We've Worked With" ) ); ?>
+    </h2>
+    <div class="glass-panel anim-reveal">
+      <div class="logo-grid">
+        <!-- Replace these img tags with your own logos -->
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/07/stock-x-logo.png" alt="StockX Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/06/SKYWORLD-LOGO-BLK-TRANSPARENT.png" alt="Skywolrd Cannabis Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/07/the-otherAsset-1@4x.png" alt="The Other Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/06/cannabuffa-logo-scaled.png" alt="Cannabuff Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/06/atc-logoAsset-5@3x.png" alt="All That Chocolate Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/06/cbk-logo.png" alt="CBK Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/06/LIONS-MANE-FULL-COLOR-LOGO.png" alt="Lions Mane Infusions Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/07/Full-Logo-Black.png" alt="Most Alive Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/07/bcn-summer-event-sticker-2@3x.png" alt="Buffalo Cannabis Network Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/07/1280px-Dunkin_logo.svg_.png" alt="Dunkin’ Logo">
+        <img src="http://casestudy-labs.com/wp-content/uploads/2025/06/Sensi_Word-mark_FINAL.png" alt="Sensi Magazine Logo">
+
+      </div>
+    </div>
+  </section>
+<?php } );
+
+/* ---------- 2. Work (Case Studies) ---------- */
+$section( 'work', function() { ?>
+  <section id="work" class="container">
+    <h2 class="section-heading anim-reveal">
+      <?php echo esc_html( get_theme_mod( 'csl_work_heading', 'Case Studies' ) ); ?>
+    </h2>
+    <p class="text-center anim-reveal">
+      <?php echo esc_html( get_theme_mod( 'csl_work_subheading', 'We design brands and platforms...' ) ); ?>
+    </p>
+
+    <div class="project-grid">
+    <?php
+      $selected = get_theme_mod( 'csl_work_featured_ids', [] );
+      if ( ! is_array( $selected ) ) { $selected = array_filter( array_map( 'absint', explode( ',', $selected ) ) ); }
+      $fallback_count = absint( get_theme_mod( 'csl_work_fallback_count', 3 ) );
+
+      $args = [
+        'post_type'      => 'casestudy',
+        'posts_per_page' => empty( $selected ) ? $fallback_count : -1,
+        'orderby'        => empty( $selected ) ? 'date' : 'post__in',
+        'order'          => 'DESC',
+      ];
+      if ( ! empty( $selected ) ) { $args['post__in'] = $selected; }
+
+      $q = new WP_Query( $args ); $i = 0;
+      if ( $q->have_posts() ) :
+        while ( $q->have_posts() ) : $q->the_post(); $i++; ?>
+          <a href="<?php the_permalink(); ?>" class="project-card-link anim-reveal" style="--stagger-index:<?php echo $i; ?>">
+            <article class="project-card glass-realistic">
+              <div class="card-image-wrapper"><?php the_post_thumbnail( 'large' ); ?></div>
+              <div class="card-content">
+                <h3 class="card-title"><?php the_title(); ?></h3>
+                <div class="card-excerpt"><?php the_excerpt(); ?></div>
+              </div>
+            </article>
+          </a>
+        <?php endwhile; wp_reset_postdata();
+      else :
+        echo '<p class="glass-panel text-center">No case studies yet.</p>';
+      endif;
+    ?>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="<?php echo esc_url( get_post_type_archive_link( 'casestudy' ) ); ?>" class="btn btn-glass">View All</a>
+    </div>
+  </section>
+<?php } );
+
+/* ---------- 3. Mission ---------- */
+$section( 'mission', function() { ?>
+  <section class="container">
+    <div class="split-section reverse">
+      <div class="split-content anim-slide-left">
+        <h2 class="h3 mb-2"><?php echo esc_html( get_theme_mod( 'csl_mission_tagline', 'Our Approach' ) ); ?></h2>
+        <h3 class="h2 mb-2"><?php echo esc_html( get_theme_mod( 'csl_mission_heading', 'Strategic Creative Partners' ) ); ?></h3>
+        <p><?php echo esc_html( get_theme_mod( 'csl_mission_paragraph1', 'We’re not just a design agency...' ) ); ?></p>
+        <p><?php echo esc_html( get_theme_mod( 'csl_mission_paragraph2', 'Our mission is...' ) ); ?></p>
+      </div>
+      <div class="split-visual anim-slide-right">
+        <div class="glass-panel">
+          <blockquote><?php echo esc_html( get_theme_mod( 'csl_mission_vision', 'To build a world-class creative ecosystem...' ) ); ?></blockquote>
         </div>
-        <div class="scroll-cue">
-            <i class="ph-bold ph-arrow-down"></i>
+      </div>
+    </div>
+  </section>
+<?php } );
+
+/* ---------- 3.5 Vision & Values ---------- */
+$section( 'values', function() { ?>
+  <section id="values" class="container">
+    <h2 class="section-heading anim-reveal"><?php esc_html_e('Vision & Values', 'auragrid'); ?></h2>
+
+    <p class="section-intro anim-reveal" style="--stagger-index:0;">
+      <strong><?php esc_html_e('Vision:', 'auragrid'); ?></strong>
+      <?php esc_html_e('To build a world-class creative agency and ecosystem that attracts innovative minds, A-1 operators, and iconic brands.', 'auragrid'); ?>
+    </p>
+
+    <div class="services-grid">
+      <div class="service-category anim-reveal" style="--stagger-index:1;">
+        <div class="service-header">
+          <h3 class="service-title"><?php esc_html_e('Taste is Strategy', 'auragrid'); ?></h3>
         </div>
-    </section>
+        <p class="service-text"><?php esc_html_e('Design isn’t decoration—it’s direction.', 'auragrid'); ?></p>
+      </div>
 
-    <!-- WORK / CASE STUDIES SECTION (Placeholder) -->
-    <section id="work" class="projects-section">
-        <div class="container">
-            <h2 class="section-heading fade-in-up">Results, Not Just Recognition.</h2>
-            <p class="section-subheading fade-in-up">We design brands that stand out, sell out, and stand the test of time. Here’s what happens when strategy, taste, and execution align.</p>
-            
-            <!-- ACF: Project Grid (using a WP_Query loop) -->
-            <div class="project-grid">
-                <?php for ($i = 1; $i <= 3; $i++): ?>
-                <article class="project-card fade-in-up">
-                    <a href="#" class="card-link-wrapper">
-                        <div class="card-image-wrapper"><img src="https://picsum.photos/800/600?random=<?php echo $i; ?>" alt="Project Thumbnail"></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Client Project <?php echo $i; ?></h3>
-                            <p class="card-excerpt">A brief, compelling description of the project appears on hover, revealing key technologies or design choices.</p>
-                        </div>
-                    </a>
-                </article>
-                <?php endfor; ?>
-            </div>
-            <div class="section-cta-group anim-fade-in-up">
-                <a href="/case-studies" class="btn"><?php _e('View Case Studies', 'neobrutalist'); ?></a>
-                <a href="/form/cannabis-advertising-readiness-quiz/" class="btn btn-secondary"><?php _e('Dispensary Marketing', 'neobrutalist'); ?></a>
-                <a href="/contact" class="btn btn-secondary"><?php _e('Start A Project', 'neobrutalist'); ?></a>
-            </div>
+      <div class="service-category anim-reveal" style="--stagger-index:2;">
+        <div class="service-header">
+          <h3 class="service-title"><?php esc_html_e('Clarity is Currency', 'auragrid'); ?></h3>
         </div>
-    </section>
+        <p class="service-text"><?php esc_html_e('Clear brands grow.', 'auragrid'); ?></p>
+      </div>
 
-    <!-- MISSION SECTION -->
-    <section id="mission" class="mission-section">
-        <div class="container">
-            <!-- ACF: Mission Heading -->
-            <h2 class="section-heading fade-in-up">Case Study Labs: Built to Inspire.</h2>
-            <div class="mission-content fade-in-up">
-                <!-- ACF: Mission Paragraph 1 -->
-                <p>We’re not just a branding agency. We’re your strategic creative partner—trusted by category leaders and next-gen founders who demand more from their brand.</p>
-                <!-- ACF: Mission Paragraph 2 -->
-                <p>Our mission is to elevate the creative standard in cannabis and emerging industries—one brand, one drop, one legacy at a time.</p>
-            </div>
-            <div class="section-cta-group anim-fade-in-up">
-                <a href="/studio" class="btn"><?php _e('The Studio', 'neobrutalist'); ?></a>
-                <a href="/studio/cannabis-advertising-readiness-quiz/" class="btn btn-secondary"><?php _e('Cannabis Advertising Quiz', 'neobrutalist'); ?></a>
-            </div>
+      <div class="service-category anim-reveal" style="--stagger-index:3;">
+        <div class="service-header">
+          <h3 class="service-title"><?php esc_html_e('Collaboration Over Control', 'auragrid'); ?></h3>
         </div>
-    </section>
+        <p class="service-text"><?php esc_html_e('We co-create, not babysit.', 'auragrid'); ?></p>
+      </div>
+    </div>
+  </section>
+<?php } );
 
-    <!-- VISION & VALUES SECTION -->
-    <section id="values" class="values-section">
-        <div class="container">
-            <!-- ACF: Values Heading -->
-            <h2 class="section-heading fade-in-up">Vision &amp; Values</h2>
-            
-            <!-- ACF: Vision Statement -->
-            <p class="section-subheading fade-in-up"><strong>Vision:</strong> To build a world-class creative agency and ecosystem that attracts innovative minds, A-1 operators, and iconic brands.</p>
 
-            <div class="values-grid fade-in-up">
-                <!-- Use an ACF Repeater field for these values -->
-                <div class="value-item"><h4>Taste is Strategy</h4><p>Design isn’t decoration—it’s direction.</p></div>
-                <div class="value-item"><h4>Clarity is Currency</h4><p>Clear brands grow.</p></div>
-                <div class="value-item"><h4>Collaboration Over Control</h4><p>We co-create, not babysit.</p></div>
-                <div class="value-item"><h4>Mutual Respect or Mutual Exit</h4><p>No micromanagers.</p></div>
-                <div class="value-item"><h4>Efficiency Over Ego</h4><p>We move with purpose.</p></div>
-                <div class="value-item"><h4>Community > Competition</h4><p>We’re building something bigger.</p></div>
-            </div>
-        </div>
-    </section>
+/* ---------- 4. Services ---------- */
+$section( 'services', function() { ?>
+  <section id="services" class="container">
+    <h2 class="section-heading anim-reveal">
+      <?php echo esc_html( get_theme_mod( 'csl_services_heading', 'Capabilities' ) ); ?>
+    </h2>
+    <div class="services-grid">
+      <?php
+        $services = new WP_Query([
+          'post_type'      => 'page',
+          'posts_per_page' => 6,
+          'post_parent'    => 20, // TODO: adjust to actual parent page ID
+          'orderby'        => 'menu_order',
+          'order'          => 'ASC',
+        ]);
+        $i = 0;
+        if ( $services->have_posts() ) :
+          while ( $services->have_posts() ) : $services->the_post(); $i++; ?>
+            <a href="<?php the_permalink(); ?>" class="service-card-link anim-reveal" style="--stagger-index:<?php echo $i; ?>">
+              <div class="service-category glass-medium">
+                <div class="service-header"><span class="service-icon">■</span><h3 class="service-title"><?php the_title(); ?></h3></div>
+                <p class="service-text"><?php echo get_the_excerpt(); ?></p>
+              </div>
+            </a>
+          <?php endwhile; wp_reset_postdata();
+        endif;
+      ?>
+    </div>
+    <div class="text-center mt-3">
+      <a href="<?php echo esc_url( get_permalink( 20 ) ); ?>" class="btn">View All Services</a>
+    </div>
+  </section>
+<?php } );
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-heading fade-in-up">Services</h2>
-            <div class="services-grid fade-in-up">
-                <!-- ACF: Column 1 - Premium Services -->
-                <div class="service-column">
-                    <h3>🔥 Premium Services</h3>
-                    <ul class="service-list">
-                        <li>Brand Positioning & Identity Systems</li>
-                        <li>Product Drop Strategy & Storytelling</li>
-                        <li>Creative Direction Retainers</li>
-                    </ul>
-                </div>
-                <!-- ACF: Column 2 - Modular Support -->
-                <div class="service-column">
-                    <h3>⚡️ Modular Support</h3>
-                    <ul class="service-list">
-                        <li>Consulting Sprints</li>
-                        <li>Digital Tools & Templates</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="section-cta-group anim-fade-in-up">
-                <a href="#" class="btn"><?php _e('Book a Discovery Call', 'neobrutalist'); ?></a>
-                <a href="/form/cannabis-advertising-readiness-quiz/" class="btn btn-secondary"><?php _e('Dispensary Marketing Packages', 'neobrutalist'); ?></a>
-            </div>
-        </div>
-    </section>
+/* ---------- 5. Client Fit ---------- */
+$section( 'client_fit', function() { ?>
+  <section class="container-narrow">
+    <h2 class="section-heading anim-reveal">
+      <?php echo esc_html( get_theme_mod( 'csl_client_fit_heading', 'Are We A Good Fit?' ) ); ?>
+    </h2>
+    <p class="text-center anim-reveal">
+      <?php echo esc_html( get_theme_mod( 'csl_client_fit_subheading', 'We collaborate with founders...' ) ); ?>
+    </p>
+    <?php
+      echo wp_kses_post( get_theme_mod(
+        'csl_client_fit_table_html',
+        '<div class="glass-table-container glass-realistic anim-reveal">
+          <table class="glass-table">
+            <thead><tr><th>You Are...</th><th>We Provide...</th></tr></thead>
+            <tbody>
+              <tr><td>An ambitious founder...</td><td>A dedicated team...</td></tr>
+              <tr><td>Looking for a long-term partner...</td><td>A transparent...</td></tr>
+              <tr><td>Passionate about quality...</td><td>Pixel-perfect execution...</td></tr>
+            </tbody>
+          </table>
+        </div>'
+      ) );
+    ?>
+  </section>
+<?php } );
 
-    <!-- CLIENT FIT SECTION -->
-    <section id="client-fit" class="client-fit-section">
-        <div class="container">
-            <h2 class="section-heading fade-in-up">This Only Works If It’s Mutual.</h2>
-            <p class="section-subheading fade-in-up">We collaborate with founders and teams who want to build legacy—not just chase hype.</p>
+/* ---------- 6. Final CTA ---------- */
+$section( 'final_cta', function() { ?>
+  <section class="container text-center">
+    <div class="anim-reveal">
+      <h2 class="h3 mb-3"><?php echo esc_html( get_theme_mod( 'csl_final_cta_heading', 'Ready to Build the Future?' ) ); ?></h2>
+      <div class="final-cta-group">
+        <a href="<?php echo esc_url( get_theme_mod( 'csl_final_cta_cta1_link', '/contact' ) ); ?>" class="btn">
+          <?php echo esc_html( get_theme_mod( 'csl_final_cta_cta1_text', 'Start a Project' ) ); ?>
+        </a>
+        <a href="<?php echo esc_url( get_theme_mod( 'csl_final_cta_cta2_link', '/form/subscribe' ) ); ?>" class="btn btn-accent">
+          <?php echo esc_html( get_theme_mod( 'csl_final_cta_cta2_text', 'Join Our Network' ) ); ?>
+        </a>
+      </div>
+    </div>
+  </section>
+<?php } ); ?>
 
-            <div class="client-profile-grid fade-in-up">
-                <!-- ACF: "We work with" list -->
-                <div class="profile-dos-column">
-                    <h4>We collaborate with founders who:</h4>
-                    <ul class="profile-list profile-dos">
-                        <li>See design as a business multiplier</li>
-                        <li>Value speed, taste, and strategy</li>
-                        <li>Want to build legacy—not just chase hype</li>
-                    </ul>
-                </div>
-                <!-- ACF: "We don't do" list -->
-                <div class="profile-donts-column">
-                    <h4>We don’t do:</h4>
-                    <ul class="profile-list profile-donts">
-                        <li>Micromanagers</li>
-                        <li>“Just need a quick logo” shoppers</li>
-                        <li>Startups with 5 decision-makers and no direction</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA SECTION -->
-    <section id="contact" class="final-cta-section">
-        <div class="container anim-fade-in-up">
-            <div class="section-cta-group">
-                <a href="/contact" class="btn"><?php _e('Start a Project', 'neobrutalist'); ?></a>
-                <a href="/form/subscribe/" class="btn btn-secondary"><?php _e('Join Our Network', 'neobrutalist'); ?></a>
-                <a href="/form/cannabis-advertising-readiness-quiz/" class="btn btn-secondary"><?php _e('Dispensary Marketing', 'neobrutalist'); ?></a>
-            </div>
-        </div>
-    </section>
 </main>
-
 <?php get_footer(); ?>

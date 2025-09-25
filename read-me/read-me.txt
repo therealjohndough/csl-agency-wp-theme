@@ -1,0 +1,418 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fmodern\fcharset0 Courier;\f2\froman\fcharset0 Times-Roman;
+\f3\fnil\fcharset0 HelveticaNeue-Italic;\f4\fmodern\fcharset0 Courier-Oblique;\f5\fnil\fcharset0 HelveticaNeue-Bold;
+\f6\fnil\fcharset0 HelveticaNeue-Medium;\f7\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red109\green109\blue109;
+\red12\green82\blue255;\red0\green0\blue0;\red20\green21\blue23;\red236\green236\blue241;\red203\green35\blue57;
+\red6\green33\blue79;\red31\green118\blue44;\red7\green68\blue184;\red218\green76\blue12;\red87\green96\blue106;
+\red52\green55\blue61;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c50196\c50196\c50196;
+\cssrgb\c2745\c43137\c100000;\cssrgb\c0\c0\c0\c87059;\cssrgb\c10196\c10980\c11765;\cssrgb\c94118\c94118\c95686;\cssrgb\c84314\c22745\c28627;
+\cssrgb\c1176\c18431\c38431;\cssrgb\c13333\c52549\c22745;\cssrgb\c0\c36078\c77255;\cssrgb\c89020\c38431\c3529;\cssrgb\c41569\c45098\c49020;
+\cssrgb\c26667\c27843\c30588;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid101\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid201\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid301\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid401\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid402\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}}
+\margl1440\margr1440\vieww28600\viewh16380\viewkind0
+\deftab720
+\pard\pardeftab720\sa360\partightenfactor0
+
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Of course! A well-written\'a0
+\f1\fs26 \cb3 README.md
+\f0\fs28 \cb1 \'a0file is essential for any project. Here is a comprehensive README file for the Neo-Brutalist theme, formatted in Markdown.\
+You can save this as\'a0
+\f1\fs26 \cb3 README.md
+\f0\fs28 \cb1 \'a0in the root of your\'a0
+\f1\fs26 \cb3 neobrutalist-theme
+\f0\fs28 \cb1 \'a0folder.\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs56 \cf0 \strokec2 Neo-Brutalist Dynamic WordPress Theme\
+\pard\pardeftab720\sa360\partightenfactor0
+
+\fs28 \cf0 A fully responsive, high-contrast, neo-brutalist WordPress theme designed for digital creatives, studios, and portfolios. It features vibrant acid tones, bold typography with Space Grotesk, and smooth animations powered by GSAP.\
+\pard\pardeftab720\sa360\partightenfactor0
+
+\f3\i \cf0 (You can replace the image link above with a\'a0
+\f4\fs26 \cb3 screenshot.png
+\f3\fs28 \cb1 \'a0file in your theme's root directory)
+\f0\i0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs48 \cf0 \strokec2 \uc0\u9889 \u65039  Features\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls1\ilvl0
+\f5\b\fs28 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Neo-Brutalist Design:
+\f0\b0 \'a0Sharp edges, solid borders, and 2D drop shadows for a striking, modern aesthetic.\
+\ls1\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Vibrant Acid Tones:
+\f0\b0 \'a0A high-contrast color palette (
+\f1\fs26 \cb3 #ff0055
+\f0\fs28 \cb1 ,\'a0
+\f1\fs26 \cb3 #12d8fa
+\f0\fs28 \cb1 ,\'a0
+\f1\fs26 \cb3 #a6ffcb
+\f0\fs28 \cb1 ) used in gradients and interactive elements.\
+\ls1\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Fully Responsive:
+\f0\b0 \'a0Fluid layout built with modern CSS Grid and Flexbox that adapts beautifully across mobile, tablet, and desktop viewports.\
+\ls1\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Custom Preloader:
+\f0\b0 \'a0An animated preloader that displays \'93MADE TO INSPIRE\'94 with a flicker/glitch effect, ensuring content is revealed smoothly.\
+\ls1\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Bold Typography:
+\f0\b0 \'a0Utilizes the\'a0
+\f5\b Space Grotesk
+\f0\b0 \'a0typeface with an emphasis on uppercase, bold weights, and tight line heights.\
+\ls1\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Dynamic Animations:
+\f0\b0 \'a0Subtle scroll-reveal animations and interactive micro-interactions powered by\'a0
+\f5\b GSAP (GreenSock Animation Platform)
+\f0\b0 .\
+\ls1\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Phosphor Icons:
+\f0\b0 \'a0A consistent, modern icon set used throughout the theme.\
+\ls1\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 WordPress Ready:
+\f0\b0 \'a0Structured with a standard WordPress file hierarchy (
+\f1\fs26 \cb3 header.php
+\f0\fs28 \cb1 ,\'a0
+\f1\fs26 \cb3 footer.php
+\f0\fs28 \cb1 ,\'a0
+\f1\fs26 \cb3 front-page.php
+\f0\fs28 \cb1 , etc.) for easy development.\
+\ls1\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 ACF Integration Ready:
+\f0\b0 \'a0Includes comments (
+\f1\fs26 \cb3 <!-- ACF: ... -->
+\f0\fs28 \cb1 ) indicating where to insert dynamic content using the\'a0{\field{\*\fldinst{HYPERLINK "https://www.google.com/url?sa=E&q=https%3A%2F%2Fwww.advancedcustomfields.com%2F"}}{\fldrslt 
+\f6 \cf5 \strokec5 Advanced Custom Fields}}\'a0plugin.\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs48 \cf0 \strokec2 \uc0\u9881 \u65039  Installation\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls2\ilvl0
+\fs28 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Download the theme folder (
+\f1\fs26 \cb3 neobrutalist-theme
+\f0\fs28 \cb1 ).\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 In your WordPress admin dashboard, navigate to\'a0
+\f5\b Appearance > Themes
+\f0\b0 .\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Click the\'a0
+\f5\b Add New
+\f0\b0 \'a0button, then\'a0
+\f5\b Upload Theme
+\f0\b0 .\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Upload the\'a0
+\f1\fs26 \cb3 .zip
+\f0\fs28 \cb1 \'a0file of the theme.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls2\ilvl0
+\f5\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	5	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Activate
+\f0\b0 \'a0the "Neo-Brutalist Dynamic" theme.\
+\pard\pardeftab720\sa360\partightenfactor0
+\cf0 Alternatively, you can upload the unzipped\'a0
+\f1\fs26 \cb3 neobrutalist-theme
+\f0\fs28 \cb1 \'a0folder directly to your\'a0
+\f1\fs26 \cb3 wp-content/themes/
+\f0\fs28 \cb1 \'a0directory via FTP.\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs48 \cf0 \strokec2 \uc0\u55357 \u56960  Setup & Configuration\
+\pard\pardeftab720\sa360\partightenfactor0
+
+\fs28 \cf0 After activating the theme, follow these steps to get it looking like the demo.\
+\pard\pardeftab720\partightenfactor0
+
+\fs44 \cf0 1. Create the Main Menu\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls3\ilvl0
+\fs28 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Go to\'a0
+\f5\b Appearance > Menus
+\f0\b0 .\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Create a new menu (e.g., "Primary Navigation").\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Add your desired pages or custom links.\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Under "Menu Settings" at the bottom, check the box for\'a0
+\f5\b Primary Menu
+\f0\b0 \'a0to assign it to the theme's header location.\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	5	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Save the menu.\
+\pard\pardeftab720\partightenfactor0
+
+\fs44 \cf0 2. Set the Homepage\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls4\ilvl0
+\fs28 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Create a new page by going to\'a0
+\f5\b Pages > Add New
+\f0\b0 . Give it a title like "Home".\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Go to\'a0
+\f5\b Settings > Reading
+\f0\b0 .\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Under "Your homepage displays", select\'a0
+\f5\b A static page
+\f0\b0 .\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 For "Homepage", select the "Home" page you just created.\
+\ls4\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	5	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Save changes. The\'a0
+\f1\fs26 \cb3 front-page.php
+\f0\fs28 \cb1 \'a0template will now be used for your site's homepage.\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs48 \cf0 \strokec2 \uc0\u55356 \u57256  Making it Dynamic with ACF\
+\pard\pardeftab720\sa360\partightenfactor0
+
+\fs28 \cf0 This theme is designed to be powered by the\'a0
+\f5\b Advanced Custom Fields (ACF)
+\f0\b0 \'a0plugin. The template files contain HTML comments to show you where to place your ACF fields.\
+\pard\pardeftab720\sa360\partightenfactor0
+
+\f5\b \cf0 Example Workflow:
+\f0\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls5\ilvl0
+\f5\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Install ACF:
+\f0\b0 \'a0Install and activate the Advanced Custom Fields plugin.\
+\ls5\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Create a Field Group:
+\f0\b0 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sa60\partightenfactor0
+\ls5\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Go to\'a0
+\f5\b ACF > Field Groups > Add New
+\f0\b0 .\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Name it something like "Homepage Settings".\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Set the\'a0
+\f5\b Location
+\f0\b0 \'a0rule to show this field group if\'a0
+\f5\b Page is equal to
+\f0\b0 \'a0your static "Home" page.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls5\ilvl0
+\f5\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Add Fields:
+\f0\b0 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sa60\partightenfactor0
+\ls5\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Add a "Text" field with the field name\'a0
+\f1\fs26 \cb3 hero_headline
+\f0\fs28 \cb1 .\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Add a "Link" field with the field name\'a0
+\f1\fs26 \cb3 hero_cta_button
+\f0\fs28 \cb1 .\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls5\ilvl0
+\f5\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Edit\'a0
+\f7\fs26 \cb3 front-page.php
+\f5\fs28 \cb1 :
+\f0\b0 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sa60\partightenfactor0
+\ls5\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Find the comment\'a0
+\f1\fs26 \cb3 <!-- ACF: Hero Headline -->
+\f0\fs28 \cb1 .\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Replace the static\'a0
+\f1\fs26 \cb3 <h1>
+\f0\fs28 \cb1 \'a0content with the ACF function:\uc0\u8232 
+\f6 \cf6 \cb3 \strokec6 Generated php\cb1 \uc0\u8232 \u8232 
+\f1\fs26 \cf7 \cb8 \strokec7 <h1 \cf9 \strokec9 class\cf7 \strokec7 =\cf10 \strokec10 "headline"\cf7 \strokec7 ><?php the_field(\cf10 \strokec10 'hero_headline'\cf7 \strokec7 ); ?></h1>\cb1 \uc0\u8232 
+\f0\fs28 \cf6 \cb3 \strokec6 \uc0\u8232 \cf0 \cb1 \strokec2 \
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Find the comment\'a0
+\f1\fs26 \cb3 <!-- ACF: Hero CTA Button -->
+\f0\fs28 \cb1 \'a0and modify the button to use the link field.\
+\pard\tx720\tx1440\pardeftab720\sa60\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f5\b \cf0 Pro Tip for the Project Grid:
+\f0\b0 \'a0For the best results, create a "Project" Custom Post Type (using a plugin like CPT UI) and add ACF fields to it (like\'a0
+\f1\fs26 \cb3 project_thumbnail
+\f0\fs28 \cb1 ,\'a0
+\f1\fs26 \cb3 project_excerpt
+\f0\fs28 \cb1 ). Then, in\'a0
+\f1\fs26 \cb3 front-page.php
+\f0\fs28 \cb1 , replace the static\'a0
+\f1\fs26 \cb3 for
+\f0\fs28 \cb1 \'a0loop with a custom\'a0
+\f1\fs26 \cb3 WP_Query
+\f0\fs28 \cb1 \'a0to dynamically display your projects.\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs44 \cf0 \strokec2 \uc0\u55357 \u56514  File Structure\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls6\ilvl0
+\f1\fs26 \cf0 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 style.css
+\f0\fs28 \cb1 : Contains the theme information header and all CSS styles.\
+\ls6\ilvl0
+\f1\fs26 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 functions.php
+\f0\fs28 \cb1 : Enqueues scripts and styles, registers menus, and adds theme support.\
+\ls6\ilvl0
+\f1\fs26 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 header.php
+\f0\fs28 \cb1 : Contains the\'a0
+\f1\fs26 \cb3 <head>
+\f0\fs28 \cb1 \'a0section, preloader, and site header.\
+\ls6\ilvl0
+\f1\fs26 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 footer.php
+\f0\fs28 \cb1 : Contains the site footer and\'a0
+\f1\fs26 \cb3 wp_footer()
+\f0\fs28 \cb1 \'a0hook.\
+\ls6\ilvl0
+\f1\fs26 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 front-page.php
+\f0\fs28 \cb1 : The main template for the static homepage.\
+\ls6\ilvl0
+\f1\fs26 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 index.php
+\f0\fs28 \cb1 : The default fallback template for post archives.\
+\ls6\ilvl0
+\f1\fs26 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 main.js
+\f0\fs28 \cb1 : Handles the preloader, mobile navigation, and GSAP animations.\
+\ls6\ilvl0
+\f1\fs26 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 README.md
+\f0\fs28 \cb1 : This file.\
+\pard\tx720\pardeftab720\sa60\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs44 \cf0 \uc0\u55357 \u56599  Dependencies\
+\pard\pardeftab720\sa360\partightenfactor0
+
+\fs28 \cf0 All external libraries are loaded via CDN in\'a0
+\f1\fs26 \cb3 functions.php
+\f0\fs28 \cb1 :\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa60\partightenfactor0
+\ls7\ilvl0
+\f5\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Google Fonts:
+\f0\b0 \'a0Space Grotesk\
+\ls7\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Phosphor Icons
+\f0\b0 \
+\ls7\ilvl0
+\f5\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 GSAP 3
+\f0\b0 \'a0(Core & ScrollTrigger Plugin)\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs44 \cf0 \strokec2 \uc0\u55356 \u57256  Design System (CSS Variables)\
+\pard\pardeftab720\sa360\partightenfactor0
+
+\fs28 \cf0 You can easily customize the core design by changing the CSS variables defined at the top of\'a0
+\f1\fs26 \cb3 style.css
+\f0\fs28 \cb1 .\
+\pard\pardeftab720\partightenfactor0
+
+\f6\fs32 \AppleTypeServices\AppleTypeServicesF65539 \cf0 Colors\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \AppleTypeServices \cf6 \cb3 \strokec6 Generated css\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf11 \cb8 \strokec11 :root\cf7 \strokec7  \{\
+    --\cf12 \strokec12 color\cf7 \strokec7 -acid-pink: \cf12 \strokec12 #ff0055\cf7 \strokec7 ;\
+    --\cf12 \strokec12 color\cf7 \strokec7 -acid-cyan: \cf12 \strokec12 #12d8fa\cf7 \strokec7 ;\
+    --\cf12 \strokec12 color\cf7 \strokec7 -acid-mint: \cf12 \strokec12 #a6ffcb\cf7 \strokec7 ;\
+    --\cf12 \strokec12 color\cf7 \strokec7 -bg: \cf12 \strokec12 #050505\cf7 \strokec7 ;\
+    --\cf12 \strokec12 color\cf7 \strokec7 -text: \cf12 \strokec12 #f0f0f0\cf7 \strokec7 ;\
+\}\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf7 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f6\fs32 \AppleTypeServices\AppleTypeServicesF65539 \cf0 \strokec2 Typography\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \AppleTypeServices \cf6 \cb3 \strokec6 Generated css\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf11 \cb8 \strokec11 :root\cf7 \strokec7  \{\
+    --\cf12 \strokec12 font\cf7 \strokec7 -primary: \cf10 \strokec10 'Space Grotesk'\cf7 \strokec7 , sans-serif;\
+    --fs-\cf11 \strokec11 h1\cf7 \strokec7 : \cf13 \strokec13 clamp\cf7 \strokec7 (\cf12 \strokec12 2.5rem\cf7 \strokec7 , \cf12 \strokec12 0.5rem\cf7 \strokec7  + \cf12 \strokec12 10vw\cf7 \strokec7 , \cf12 \strokec12 8rem\cf7 \strokec7 );\
+    --fs-\cf11 \strokec11 h2\cf7 \strokec7 : \cf13 \strokec13 clamp\cf7 \strokec7 (\cf12 \strokec12 2rem\cf7 \strokec7 , \cf12 \strokec12 1.5rem\cf7 \strokec7  + \cf12 \strokec12 2.5vw\cf7 \strokec7 , \cf12 \strokec12 3.5rem\cf7 \strokec7 );\
+    \cf14 \strokec14 /* ... and more */\cf7 \strokec7 \
+\}\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf7 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs48 \cf0 \strokec2 \uc0\u55357 \u56540  License\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 This theme is licensed under the\'a0{\field{\*\fldinst{HYPERLINK "https://www.google.com/url?sa=E&q=http%3A%2F%2Fwww.gnu.org%2Flicenses%2Fgpl-2.0.html"}}{\fldrslt 
+\f6 \cf5 \strokec5 GNU General Public License v2 or later}}.
+\f6 \cf15 \strokec15 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs24 \cf0 \strokec2 \
+}

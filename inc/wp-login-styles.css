@@ -1,0 +1,104 @@
+/*
+ * Custom Styles for the WordPress Login Page (wp-login.php)
+ * This file re-brands the default login to match the Case Study Labs theme.
+ */
+body.login {
+    background: var(--color-bg-deep) !important;
+    /* Optional: Add your animated grid background if you wish */
+}
+
+/* Style the main login container */
+#login {
+    width: 100%;
+    max-width: 420px;
+    padding: 0 var(--space-4);
+}
+
+#login h1 a {
+    display: none; /* We will add our own logo with a hook */
+}
+
+#loginform {
+    background: var(--glass-bg-medium);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-medium);
+    border-radius: var(--ui-radius-xl);
+    padding: var(--spacing-card);
+    box-shadow: var(--glass-shadow) !important;
+}
+
+#login label {
+    color: var(--color-text-secondary);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+}
+
+#login .input,
+#login input[type="text"],
+#login input[type="password"] {
+    background: var(--color-bg-deep);
+    border: 1px solid var(--color-ui-stroke-strong);
+    border-radius: var(--ui-radius);
+    padding: var(--space-3) var(--space-4);
+    color: var(--color-text-primary);
+    width: 100%;
+    margin-top: var(--space-2);
+    font-size: var(--fs-base);
+    outline: none;
+    box-shadow: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+#login .input:focus,
+#login input[type="text"]:focus,
+#login input[type="password"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent) !important;
+}
+
+#login .submit #wp-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--ui-radius-full);
+    font-family: var(--font-display);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-spring);
+    background: var(--btn-bg-primary);
+    color: white;
+    box-shadow: var(--btn-shadow), var(--ui-glow-primary);
+    height: auto;
+    text-shadow: none;
+}
+
+#login .submit #wp-submit:hover {
+    background: var(--btn-bg-primary-hover);
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Style the links below the form */
+#nav, #backtoblog {
+    text-align: center;
+    padding: 0 !important;
+}
+#nav a, #backtoblog a {
+    color: var(--color-text-secondary) !important;
+    font-size: var(--fs-sm);
+}
+#nav a:hover, #backtoblog a:hover {
+    color: var(--color-primary) !important;
+}
+
+/* Error messages */
+#login_error, .login .message {
+    border-left-color: var(--color-warning) !important;
+    border-radius: var(--ui-radius-sm);
+    background: var(--glass-bg-light);
+    box-shadow: var(--glass-shadow);
+    color: var(--color-text-primary);
+}
