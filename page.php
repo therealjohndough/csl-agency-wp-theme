@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Aura-Grid_Machina_Enhanced
+ * @package CSL_Agency
  */
 
 get_header();

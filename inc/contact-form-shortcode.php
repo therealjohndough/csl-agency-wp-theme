@@ -70,21 +70,23 @@ function csl_improved_contact_form_shortcode($atts = []) {
             <!-- Name and Email Row -->
             <div class="form-group">
                 <label data-required="true">
-                    <input class="input" type="text" name="csl_name" required autocomplete="name">
                     <span>Full Name</span>
+                    <input class="input" type="text" name="csl_name" required autocomplete="name">
                 </label>
                 <label data-required="true">
-                    <input class="input" type="email" name="csl_email" required autocomplete="email">
                     <span>Email Address</span>
+                    <input class="input" type="email" name="csl_email" required autocomplete="email">
                 </label>
             </div>
 
             <!-- Phone and Company Row -->
             <div class="form-group">
                 <label data-required="true">
+                    <span>Phone Number</span>
                     <input class="input" type="tel" name="csl_phone" required>
                 </label>
                 <label>
+                    <span>Company (optional)</span>
                     <input class="input" type="text" name="csl_company" placeholder="Company (optional)">
                 </label>
             </div>
@@ -92,6 +94,7 @@ function csl_improved_contact_form_shortcode($atts = []) {
             <!-- Project Type and Budget Row -->
             <div class="form-group">
                 <label data-required="true">
+                    <span>Project Type</span>
                     <select class="input" name="csl_project_type" required>
                         <option value="" disabled selected hidden>Select project type…</option>
                         <option value="website">Website Design & Development</option>
@@ -105,6 +108,7 @@ function csl_improved_contact_form_shortcode($atts = []) {
                 </label>
                 
                 <label data-required="true">
+                    <span>Investment Range</span>
                     <select class="input" name="csl_budget" required>
                         <option value="" disabled selected hidden>Select investment range…</option>
                         <option value="under-5k">Under $5,000</option>
@@ -114,13 +118,13 @@ function csl_improved_contact_form_shortcode($atts = []) {
                         <option value="50k-plus">$50,000+</option>
                         <option value="lets-discuss">Let's discuss</option>
                     </select>
-                    <span>Investment Range</span>
                 </label>
             </div>
 
             <!-- Timeline and Experience Row -->
             <div class="form-group">
                 <label data-required="true">
+                    <span>Project Timeline</span>
                     <select class="input" name="csl_timeline" required>
                         <option value="" disabled selected hidden>Select timeline…</option>
                         <option value="asap">ASAP (Rush project)</option>
@@ -130,10 +134,10 @@ function csl_improved_contact_form_shortcode($atts = []) {
                         <option value="planning">Planning phase</option>
                         <option value="flexible">Flexible timing</option>
                     </select>
-                    <span>Timeline</span>
                 </label>
                 
                 <label>
+                    <span>Agency Experience (optional)</span>
                     <select class="input" name="csl_agency_experience">
                         <option value="" disabled selected hidden>Agency experience (optional)…</option>
                         <option value="first-time">First time working with an agency</option>
@@ -147,6 +151,7 @@ function csl_improved_contact_form_shortcode($atts = []) {
             <!-- Referral Source Row -->
             <div class="form-group full-width">
                 <label>
+                    <span>How did you hear about us? (optional)</span>
                     <select class="input" name="csl_source">
                         <option value="" disabled selected hidden>How did you hear about us? (optional)</option>
                         <option value="referral">Referral from client/partner</option>
@@ -164,8 +169,8 @@ function csl_improved_contact_form_shortcode($atts = []) {
             <!-- Project Description -->
             <div class="form-group full-width">
                 <label data-required="true">
-                    <textarea class="input" name="csl_message" rows="4" required></textarea>
                     <span>Tell us about your project, goals, and what success looks like</span>
+                    <textarea class="input" name="csl_message" rows="4" required></textarea>
                 </label>
             </div>
 

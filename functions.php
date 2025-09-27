@@ -1,14 +1,52 @@
 <?php
 /**
- * Aura-Grid Machina Enhanced — functions.php (rewritten)
+ * CSL Agency Theme — functions.php
  *
- * @package Aura-Grid_Machina_Enhanced
+ * @package CSL_Agency
  */
+
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/*--------------------------------------------------------------
+# ACF Fallback Functions
+--------------------------------------------------------------*/
+if (!function_exists('get_field')) {
+    function get_field($field_name, $post_id = null) {
+        return get_post_meta($post_id ?: get_the_ID(), $field_name, true);
+    }
+}
+
+if (!function_exists('the_field')) {
+    function the_field($field_name, $post_id = null) {
+        echo get_field($field_name, $post_id);
+    }
+}
+
+if (!function_exists('have_rows')) {
+    function have_rows($field_name, $post_id = null) {
+        return false; // Simple fallback
+    }
+}
+
+if (!function_exists('the_row')) {
+    function the_row() {
+        return false;
+    }
+}
+
+if (!function_exists('get_sub_field')) {
+    function get_sub_field($field_name) {
+        return '';
+    }
+}
 
 /*--------------------------------------------------------------
 # Theme Setup
 --------------------------------------------------------------*/
-function auragrid_theme_setup() {
+function csl_agency_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('custom-logo', [
@@ -23,28 +61,64 @@ function auragrid_theme_setup() {
     add_theme_support('customize-selective-refresh-widgets');
 
     register_nav_menus([
-        'primary' => __('Primary Menu', 'auragrid'),
+        'primary' => __('Primary Menu', 'csl-agency'),
     ]);
+    
+    // Load text domain
+    load_theme_textdomain('csl-agency', get_template_directory() . '/languages');
 }
-add_action('after_setup_theme', 'auragrid_theme_setup');
+add_action('after_setup_theme', 'csl_agency_theme_setup');
 
 /*--------------------------------------------------------------
 # Enqueue Scripts & Styles
 --------------------------------------------------------------*/
-function auragrid_enqueue_scripts() {
+function csl_agency_enqueue_scripts() {
     $theme_version = wp_get_theme()->get('Version');
 
-    // Main Theme Stylesheet (This should remain)
+    // Main Theme Stylesheet
     $style_path = get_stylesheet_directory() . '/style.css';
     $css_version = is_file($style_path) ? ($theme_version . '.' . filemtime($style_path)) : $theme_version;
-    wp_enqueue_style('auragrid-style', get_stylesheet_uri(), [], $css_version);
+    wp_enqueue_style('csl-agency-style', get_stylesheet_uri(), [], $css_version);
     
-    // Enqueue modular component CSS
-    wp_enqueue_style('csl-contact-form', 
-        get_template_directory_uri() . '/assets/css/components/contact-form.css', 
-        ['auragrid-style'], 
-        $css_version
-    );
+    // Enqueue modular component CSS if files exist
+    $contact_form_css = get_template_directory() . '/assets/css/components/contact-form.css';
+    if (file_exists($contact_form_css)) {
+        wp_enqueue_style('csl-contact-form', 
+            get_template_directory_uri() . '/assets/css/components/contact-form.css', 
+            ['csl-agency-style'], 
+            $css_version
+        );
+    }
+    
+    // Inline critical contact form styles to ensure they always load
+    $inline_form_css = "
+    .csl-contact-form { max-width: 100%; margin: 0 auto; }
+    .csl-form { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; }
+    .csl-form .input { 
+        padding: 0.75rem; 
+        border: 1px solid rgba(255, 255, 255, 0.3); 
+        border-radius: 8px; 
+        background: rgba(0, 0, 0, 0.3); 
+        color: var(--color-text-primary); 
+        font-size: 1rem; 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    .csl-form .submit { 
+        background: var(--color-primary-500); 
+        border: none; 
+        padding: 0.75rem 1.5rem; 
+        border-radius: 8px; 
+        color: #ffffff; 
+        font-weight: 600; 
+        cursor: pointer; 
+    }
+    @media (max-width: 768px) { 
+        .csl-form .form-group { flex-direction: column; }
+        .csl-form .submit { width: 100%; }
+        .csl-form .input { font-size: 16px; }
+    }";
+    wp_add_inline_style('csl-agency-style', $inline_form_css);
 
 wp_enqueue_style(
     'google-fonts',
@@ -75,7 +149,7 @@ wp_enqueue_style(
         }
     }
     
-add_action('wp_enqueue_scripts', 'auragrid_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'csl_agency_enqueue_scripts');
 
 /*--------------------------------------------------------------
 # Include Custom Components

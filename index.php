@@ -7,16 +7,16 @@
     <!-- ======================================================================== -->
     <section class="hero">
         <div class="hero-content anim-reveal">
-            <?php $hero_headline = __('Where Taste Drives Growth.', 'auragrid'); ?>
+            <?php $hero_headline = __('Where Taste Drives Growth.', 'csl-agency'); ?>
             <h1 class="headline" data-text="<?php echo esc_attr($hero_headline); ?>"><?php echo esc_html($hero_headline); ?></h1>
 
             <p class="hero-intro">
-                <?php _e('Strategic design and brand elevation for cannabis and lifestyle leaders. We empower premium brands with creative that inspires culture, commands attention, and drives revenue.', 'auragrid'); ?>
+                <?php _e('Strategic design and brand elevation for cannabis and lifestyle leaders. We empower premium brands with creative that inspires culture, commands attention, and drives revenue.', 'csl-agency'); ?>
             </p>
             
             <div class="hero-cta-group" style="margin-top: 3rem;">
-                <a href="<?php echo esc_url(home_url('/case-studies')); ?>" class="btn"><?php _e('See Our Work', 'auragrid'); ?></a>
-                <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn btn-accent"><?php _e('Work With Us', 'auragrid'); ?></a>
+                <a href="<?php echo esc_url(home_url('/case-studies')); ?>" class="btn"><?php _e('See Our Work', 'csl-agency'); ?></a>
+                <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn btn-accent"><?php _e('Work With Us', 'csl-agency'); ?></a>
             </div>
         </div>
     </section>

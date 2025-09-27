@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer
  *
- * @package Aura-Grid_Machina_Enhanced
+ * @package CSL_Agency
  */
 ?>
     </div><!-- #page-content -->
