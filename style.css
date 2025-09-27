@@ -1777,6 +1777,24 @@ body .site-header,
 /*                        8. ENHANCED UI ELEMENTS & BUTTONS                   */
 /* -------------------------------------------------------------------------- */
 
+/* Contact Page Mobile Fixes */
+@media (max-width: 768px) {
+    .split-section.split-60-40 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .glass-panel {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
 /* Enhanced button system already defined in sections above, 
    adding legacy compatibility styles */
 .btn-legacy {

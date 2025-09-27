@@ -113,13 +113,39 @@
     background: #ea580c;
 }
 
+/* Loading States */
+.csl-form .submit:disabled {
+    background: #6b7280;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.csl-form .submit-loading {
+    font-size: 0.9rem;
+    color: #f97316;
+    margin-left: 0.5rem;
+}
+
+/* Error States */
+.csl-form .input.error {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .csl-form .form-group {
         flex-direction: column;
+        gap: 1rem;
     }
     
     .csl-form .submit {
         width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .csl-contact-form {
+        padding: 1rem;
     }
 }
