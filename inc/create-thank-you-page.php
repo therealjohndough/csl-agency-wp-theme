@@ -30,3 +30,6 @@ function csl_create_thank_you_page() {
 
 // Run this on theme activation or admin init
 add_action('after_setup_theme', 'csl_create_thank_you_page');
+
+// Also try to run on admin init
+add_action('admin_init', 'csl_create_thank_you_page');

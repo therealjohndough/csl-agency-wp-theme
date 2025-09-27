@@ -72,39 +72,82 @@ $section( 'work', function() { ?>
 
     <div class="project-grid">
     <?php
+      // Get theme customizer settings for featured case studies
       $selected = get_theme_mod( 'csl_work_featured_ids', [] );
-      if ( ! is_array( $selected ) ) { $selected = array_filter( array_map( 'absint', explode( ',', $selected ) ) ); }
+      if ( ! is_array( $selected ) ) { 
+        $selected = array_filter( array_map( 'absint', explode( ',', $selected ) ) ); 
+      }
       $fallback_count = absint( get_theme_mod( 'csl_work_fallback_count', 3 ) );
+      
+      // Ensure fallback count is at least 1
+      if ( $fallback_count < 1 ) {
+        $fallback_count = 3;
+      }
 
+      // Build query arguments with better error handling
       $args = [
         'post_type'      => 'casestudy',
-        'posts_per_page' => empty( $selected ) ? $fallback_count : -1,
+        'post_status'    => 'publish',
+        'posts_per_page' => empty( $selected ) ? $fallback_count : count( $selected ),
         'orderby'        => empty( $selected ) ? 'date' : 'post__in',
         'order'          => 'DESC',
       ];
-      if ( ! empty( $selected ) ) { $args['post__in'] = $selected; }
+      
+      // Only add post__in if we have valid selected IDs
+      if ( ! empty( $selected ) && is_array( $selected ) ) { 
+        $args['post__in'] = $selected; 
+      }
 
-      $q = new WP_Query( $args ); $i = 0;
+      // Execute the query
+      $q = new WP_Query( $args ); 
+      $i = 0;
+      
       if ( $q->have_posts() ) :
         while ( $q->have_posts() ) : $q->the_post(); $i++; ?>
           <a href="<?php the_permalink(); ?>" class="project-card-link anim-reveal" style="--stagger-index:<?php echo $i; ?>">
             <article class="project-card glass-realistic">
-              <div class="card-image-wrapper"><?php the_post_thumbnail( 'large' ); ?></div>
+              <div class="card-image-wrapper">
+                <?php if ( has_post_thumbnail() ) : ?>
+                  <?php the_post_thumbnail( 'large' ); ?>
+                <?php else : ?>
+                  <div class="placeholder-image" style="background: rgba(255,255,255,0.1); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6);">
+                    <span>No Image</span>
+                  </div>
+                <?php endif; ?>
+              </div>
               <div class="card-content">
                 <h3 class="card-title"><?php the_title(); ?></h3>
-                <div class="card-excerpt"><?php the_excerpt(); ?></div>
+                <div class="card-excerpt">
+                  <?php 
+                  if ( has_excerpt() ) {
+                    the_excerpt();
+                  } else {
+                    echo wp_trim_words( get_the_content(), 20, '...' );
+                  }
+                  ?>
+                </div>
               </div>
             </article>
           </a>
-        <?php endwhile; wp_reset_postdata();
-      else :
-        echo '<p class="glass-panel text-center">No case studies yet.</p>';
-      endif;
-    ?>
+        <?php endwhile; 
+        wp_reset_postdata();
+      else : ?>
+        <div class="glass-panel text-center" style="padding: 3rem 2rem;">
+          <h3 style="margin-bottom: 1rem; opacity: 0.8;">No Case Studies Yet</h3>
+          <p style="margin-bottom: 0; opacity: 0.6;">We're working on showcasing our latest projects. Check back soon!</p>
+        </div>
+      <?php endif; ?>
     </div>
 
     <div class="text-center mt-3">
-      <a href="<?php echo esc_url( get_post_type_archive_link( 'casestudy' ) ); ?>" class="btn btn-glass">View All</a>
+      <?php 
+      // Only show "View All" if case studies exist
+      $case_study_count = wp_count_posts('casestudy');
+      if ( $case_study_count && $case_study_count->publish > 0 ) : ?>
+        <a href="<?php echo esc_url( get_post_type_archive_link( 'casestudy' ) ); ?>" class="btn btn-glass">View All Cases</a>
+      <?php else : ?>
+        <a href="/contact" class="btn btn-glass">Start Your Project</a>
+      <?php endif; ?>
     </div>
   </section>
 <?php } );

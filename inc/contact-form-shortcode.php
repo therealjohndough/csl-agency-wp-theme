@@ -27,9 +27,33 @@ function csl_improved_contact_form_shortcode($atts = []) {
     
     // Start output buffering
     ob_start();
+    
+    // Check for success message
+    if (!session_id()) {
+        session_start();
+    }
+    $success = $_SESSION['form_success'] ?? false;
+    $lead_score = $_SESSION['lead_score'] ?? 0;
+    
+    // Clear session after displaying
+    if ($success) {
+        unset($_SESSION['form_success']);
+        unset($_SESSION['lead_score']);
+    }
     ?>
     
     <div class="<?php echo esc_attr($atts['class']); ?>">
+        
+        <?php if ($success): ?>
+        <div class="success-message" style="background: rgba(34, 197, 94, 0.1); border: 1px solid #22c55e; color: #22c55e; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+            <h3>Thank You! Your inquiry has been submitted.</h3>
+            <p>We received your project details and will be in touch within 24 hours. In the meantime, feel free to explore our work or book a discovery call.</p>
+            <div style="margin-top: 1rem;">
+                <a href="/case-studies" class="btn btn-primary" style="margin-right: 1rem;">View Case Studies</a>
+                <a href="https://calendar.app.google/z1veEHms9x3RJAT79" class="btn btn-secondary" target="_blank">Book Discovery Call</a>
+            </div>
+        </div>
+        <?php else: ?>
         <form method="post" class="csl-form" novalidate data-redirect="<?php echo esc_url($atts['redirect']); ?>">
             
             <?php echo $nonce; ?>
@@ -58,12 +82,10 @@ function csl_improved_contact_form_shortcode($atts = []) {
             <!-- Phone and Company Row -->
             <div class="form-group">
                 <label data-required="true">
-                    <input class="input" type="tel" name="csl_phone" required autocomplete="tel">
-                    <span>Phone Number</span>
+                    <input class="input" type="tel" name="csl_phone" required>
                 </label>
                 <label>
-                    <input class="input" type="text" name="csl_company" autocomplete="new-password" placeholder="" spellcheck="false">
-                    <span>Company / Organization (optional)</span>
+                    <input class="input" type="text" name="csl_company" placeholder="Company (optional)">
                 </label>
             </div>
 
@@ -80,7 +102,6 @@ function csl_improved_contact_form_shortcode($atts = []) {
                         <option value="packaging">Product & Packaging Design</option>
                         <option value="other">Other / Multiple Services</option>
                     </select>
-                    <span>Project Type</span>
                 </label>
                 
                 <label data-required="true">
@@ -120,7 +141,6 @@ function csl_improved_contact_form_shortcode($atts = []) {
                         <option value="previous-bad">Worked with agencies before (bad experience)</option>
                         <option value="in-house-team">Have in-house marketing team</option>
                     </select>
-                    <span>Agency Experience</span>
                 </label>
             </div>
 
@@ -138,7 +158,6 @@ function csl_improved_contact_form_shortcode($atts = []) {
                         <option value="press-article">Article or press mention</option>
                         <option value="other">Other</option>
                     </select>
-                    <span>Referral Source</span>
                 </label>
             </div>
 
@@ -157,20 +176,8 @@ function csl_improved_contact_form_shortcode($atts = []) {
             </button>
 
         </form>
+        <?php endif; ?>
     </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const companyField = document.querySelector('input[name="csl_company"]');
-        if (companyField) {
-            companyField.addEventListener('input', function() {
-                // Force clear any browser autocomplete styling
-                this.style.color = '#ffffff';
-                this.style.background = 'rgba(255, 255, 255, 0.1)';
-            });
-        }
-    });
-    </script>
 
     <?php
     return ob_get_clean();
@@ -186,6 +193,15 @@ function csl_handle_contact_form_submission() {
     // Only process if our form was submitted
     if (!isset($_POST['csl_form_submit']) || $_POST['csl_form_submit'] !== '1') {
         return;
+    }
+    
+    // Debug: Log that we got here
+    error_log('Contact form submitted - processing...');
+    error_log('POST data: ' . print_r($_POST, true));
+    
+    // Start session if not already started
+    if (!session_id()) {
+        session_start();
     }
     
     // Verify nonce for security
@@ -250,12 +266,29 @@ function csl_handle_contact_form_submission() {
     // Send confirmation email to user
     csl_send_confirmation_email($form_data);
     
-    // Redirect to thank you page
-    $redirect_url = home_url('/thank-you/?lead=' . $lead_score);
-    wp_redirect($redirect_url);
+    // Create thank you page if it doesn't exist
+    $thank_you_page = get_page_by_path('thank-you');
+    if (!$thank_you_page) {
+        $page_data = array(
+            'post_title'    => 'Thank You',
+            'post_name'     => 'thank-you',
+            'post_content'  => '[csl_thank_you_content]',
+            'post_status'   => 'publish',
+            'post_type'     => 'page',
+            'post_author'   => 1,
+        );
+        wp_insert_post($page_data);
+    }
+    
+    // Set success message in session instead of redirecting
+    $_SESSION['form_success'] = true;
+    $_SESSION['lead_score'] = $lead_score;
+    
+    // Redirect back to contact page
+    wp_redirect($_SERVER['REQUEST_URI']);
     exit;
 }
-add_action('init', 'csl_handle_contact_form_submission');
+add_action('wp', 'csl_handle_contact_form_submission');
 
 /**
  * Calculate lead score based on form responses
@@ -379,8 +412,12 @@ function csl_create_contact_submissions_table() {
  * Send notification email to admin
  */
 function csl_send_contact_notification($data) {
-    $to = get_option('admin_email', 'dough@casestudylabs.com');
+    $to = 'dough@casestudylabs.com'; // Force correct admin email
     $subject = "New High-Quality Lead: {$data['name']} (Score: {$data['lead_score']})";
+    
+    // Debug: Log email attempt
+    error_log('Sending admin email to: ' . $to);
+    error_log('Subject: ' . $subject);
     
     $message = "New contact form submission with lead score: {$data['lead_score']}/100\n\n";
     $message .= "Name: {$data['name']}\n";
