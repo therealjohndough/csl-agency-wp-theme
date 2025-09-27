@@ -24,22 +24,20 @@
 
 /* Form Groups */
 .csl-form .form-group {
-    display: flex;
-    gap: 1rem;
+    display: block;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .csl-form .form-group.full-width {
-    flex-direction: column;
+    display: block;
 }
 
 /* Labels and Inputs */
 .csl-form label {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 .csl-form label span {
@@ -47,6 +45,7 @@
     margin-bottom: 0.5rem;
     color: #ffffff;
     font-weight: 500;
+    display: block;
 }
 
 .csl-form .input {
@@ -143,9 +142,8 @@
 /* Responsive */
 @media (max-width: 768px) {
     .csl-form .form-group {
-        flex-direction: column;
-        gap: 0;
-        margin-bottom: 0;
+        display: block;
+        margin-bottom: 1.5rem;
     }
     
     .csl-form label {
