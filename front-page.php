@@ -243,43 +243,47 @@ $section( 'services', function() { ?>
 
 /* ---------- 5. Client Fit ---------- */
 $section( 'client_fit', function() { ?>
-  <section class="container-narrow">
-    <h2 class="section-heading anim-reveal">
-      <?php echo esc_html( get_theme_mod( 'csl_client_fit_heading', 'Are We A Good Fit?' ) ); ?>
-    </h2>
-    <p class="text-center anim-reveal">
-      <?php echo esc_html( get_theme_mod( 'csl_client_fit_subheading', 'We collaborate with founders...' ) ); ?>
+  <section id="client-fit" class="container-narrow">
+    <h2 class="section-heading anim-reveal"><?php _e('This Only Works If It\'s Mutual.', 'csl-agency'); ?></h2>
+    <p class="text-center anim-reveal" style="max-width: 650px; margin-inline: auto; margin-bottom: 4rem; color: var(--color-text-secondary); transition-delay: 0.1s;">
+      <?php _e('We collaborate with founders and teams who want to build legacy—not just chase hype.', 'csl-agency'); ?>
     </p>
-    <?php
-      echo wp_kses_post( get_theme_mod(
-        'csl_client_fit_table_html',
-        '<div class="glass-table-container glass-realistic anim-reveal">
-          <table class="glass-table">
-            <thead><tr><th>You Are...</th><th>We Provide...</th></tr></thead>
-            <tbody>
-              <tr><td>An ambitious founder...</td><td>A dedicated team...</td></tr>
-              <tr><td>Looking for a long-term partner...</td><td>A transparent...</td></tr>
-              <tr><td>Passionate about quality...</td><td>Pixel-perfect execution...</td></tr>
-            </tbody>
-          </table>
-        </div>'
-      ) );
-    ?>
+
+    <div class="glass-table-container anim-reveal" style="transition-delay: 0.2s;">
+      <table class="glass-table">
+        <thead>
+          <tr>
+            <th><?php _e('We Collaborate With Founders Who:', 'csl-agency'); ?></th>
+            <th><?php _e('We Are Not A Good Fit For:', 'csl-agency'); ?></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><?php _e('See design as a business multiplier', 'csl-agency'); ?></td>
+            <td><?php _e('Micromanagers and design-by-committee', 'csl-agency'); ?></td>
+          </tr>
+          <tr>
+            <td><?php _e('Value speed, taste, and strategy', 'csl-agency'); ?></td>
+            <td><?php _e('"Just need a quick logo" shoppers', 'csl-agency'); ?></td>
+          </tr>
+          <tr>
+            <td><?php _e('Want to build legacy—not just chase hype', 'csl-agency'); ?></td>
+            <td><?php _e('Startups with no direction', 'csl-agency'); ?></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 <?php } );
 
 /* ---------- 6. Final CTA ---------- */
 $section( 'final_cta', function() { ?>
-  <section class="container text-center">
+  <section id="contact" class="container text-center">
     <div class="anim-reveal">
-      <h2 class="h3 mb-3"><?php echo esc_html( get_theme_mod( 'csl_final_cta_heading', 'Ready to Build the Future?' ) ); ?></h2>
+      <h2 class="h3 mb-3"><?php _e('Ready To Build The Future?', 'csl-agency'); ?></h2>
       <div class="final-cta-group">
-        <a href="<?php echo esc_url( get_theme_mod( 'csl_final_cta_cta1_link', '/contact' ) ); ?>" class="btn">
-          <?php echo esc_html( get_theme_mod( 'csl_final_cta_cta1_text', 'Start a Project' ) ); ?>
-        </a>
-        <a href="<?php echo esc_url( get_theme_mod( 'csl_final_cta_cta2_link', '/form/subscribe' ) ); ?>" class="btn btn-accent">
-          <?php echo esc_html( get_theme_mod( 'csl_final_cta_cta2_text', 'Join Our Network' ) ); ?>
-        </a>
+        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn"><?php _e('Start a Project', 'csl-agency'); ?></a>
+        <a href="<?php echo esc_url(home_url('/form/subscribe/')); ?>" class="btn btn-accent"><?php _e('Join Our Network', 'csl-agency'); ?></a>
       </div>
     </div>
   </section>
