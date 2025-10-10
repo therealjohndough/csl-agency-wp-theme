@@ -1,8 +1,33 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS Files
 .DS_Store
 __MACOSX/
-node_modules/
-*.log
+Thumbs.db
+
+# Archives
 *.zip
 *.rtf
+
+# Theme specific
 read_me/
 
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

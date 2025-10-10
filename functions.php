@@ -75,10 +75,15 @@ add_action('after_setup_theme', 'csl_agency_theme_setup');
 function csl_agency_enqueue_scripts() {
     $theme_version = wp_get_theme()->get('Version');
 
-    // Main Theme Stylesheet
+    // Load Vite assets (Tailwind CSS + Alpine.js)
+    require_once get_template_directory() . '/inc/vite-helper.php';
+    csl_vite_asset();
+
+    // Legacy main stylesheet (keeping for backward compatibility)
     $style_path = get_stylesheet_directory() . '/style.css';
     $css_version = is_file($style_path) ? ($theme_version . '.' . filemtime($style_path)) : $theme_version;
-    wp_enqueue_style('csl-agency-style', get_stylesheet_uri(), [], $css_version);
+    // Commented out to use Tailwind instead
+    // wp_enqueue_style('csl-agency-style', get_stylesheet_uri(), [], $css_version);
     
     // Enqueue modular component CSS if files exist
     $contact_form_css = get_template_directory() . '/assets/css/components/contact-form.css';

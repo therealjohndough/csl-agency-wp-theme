@@ -1,0 +1,340 @@
+/**
+ * Tailwind CSS Entry Point
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Custom Base Styles
+ */
+@layer base {
+  body {
+    @apply bg-light text-dark font-montserrat;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-space font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-4xl;
+  }
+}
+
+/**
+ * Custom Components
+ */
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-block px-6 py-3 font-semibold text-center transition-all duration-300 rounded-lg;
+    @apply bg-dark text-white hover:bg-primary hover:scale-105;
+  }
+
+  .btn-accent {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+
+  .btn-glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20;
+  }
+
+  /* Glass Effects */
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6;
+  }
+
+  .glass-realistic {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl;
+    @apply transition-all duration-300 hover:bg-white/15 hover:scale-105;
+  }
+
+  .glass-medium {
+    @apply bg-white/[0.08] backdrop-blur-md border border-white/[0.15] rounded-xl p-5;
+    @apply transition-all duration-300 hover:bg-white/[0.12];
+  }
+
+  /* Animations */
+  .anim-reveal {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+
+  .anim-reveal.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .anim-slide-left {
+    @apply opacity-0 -translate-x-8 transition-all duration-700;
+  }
+
+  .anim-slide-left.is-visible {
+    @apply opacity-100 translate-x-0;
+  }
+
+  .anim-slide-right {
+    @apply opacity-0 translate-x-8 transition-all duration-700;
+  }
+
+  .anim-slide-right.is-visible {
+    @apply opacity-100 translate-x-0;
+  }
+
+  .anim-fade-in {
+    @apply opacity-0 transition-opacity duration-700;
+  }
+
+  .anim-fade-in.is-visible {
+    @apply opacity-100;
+  }
+
+  /* Stagger delays for multiple items */
+  [style*="--stagger-index"] {
+    animation-delay: calc(var(--stagger-index) * 100ms);
+  }
+
+  /* Header */
+  .site-header {
+    @apply fixed top-0 left-0 right-0 z-50 px-6 py-4;
+    @apply bg-white/90 backdrop-blur-md border-b border-gray-200/50;
+    @apply flex items-center justify-between;
+  }
+
+  .site-logo img {
+    @apply h-12 w-auto;
+  }
+
+  .main-navigation {
+    @apply hidden md:flex items-center gap-8;
+  }
+
+  .main-navigation a {
+    @apply text-dark hover:text-primary transition-colors duration-300 font-medium;
+  }
+
+  /* Hamburger Menu */
+  .hamburger-menu {
+    @apply md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center cursor-pointer bg-transparent border-0;
+  }
+
+  .hamburger-menu .bar {
+    @apply w-full h-0.5 bg-dark transition-all duration-300;
+  }
+
+  .nav-active .hamburger-menu .bar1 {
+    @apply rotate-45 translate-y-2;
+  }
+
+  .nav-active .hamburger-menu .bar2 {
+    @apply opacity-0;
+  }
+
+  .nav-active .hamburger-menu .bar3 {
+    @apply -rotate-45 -translate-y-2;
+  }
+
+  /* Mobile Navigation */
+  .nav-active .main-navigation-container {
+    @apply flex;
+  }
+
+  .main-navigation-container {
+    @apply hidden md:block;
+    @apply fixed md:relative top-20 md:top-0 left-0 right-0;
+    @apply bg-white md:bg-transparent p-6 md:p-0;
+    @apply border-b md:border-0 border-gray-200;
+  }
+
+  .nav-active .main-navigation {
+    @apply flex flex-col md:flex-row items-start md:items-center;
+  }
+
+  /* Hero Section */
+  .hero {
+    @apply min-h-screen flex items-center justify-center px-6 pt-24 pb-12;
+    @apply bg-gradient-to-br from-dark via-dark/95 to-primary/20;
+  }
+
+  .hero-content {
+    @apply text-center max-w-4xl mx-auto;
+  }
+
+  .hero .headline {
+    @apply text-white mb-6;
+  }
+
+  .hero-intro {
+    @apply text-xl md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto;
+  }
+
+  .hero-cta-group {
+    @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
+  }
+
+  /* Container Utilities */
+  .container {
+    @apply max-w-7xl mx-auto px-6 py-16;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-6 py-16;
+  }
+
+  /* Section Headings */
+  .section-heading {
+    @apply text-center mb-12 text-dark;
+  }
+
+  .section-intro {
+    @apply text-center text-lg text-gray-600 mb-8 max-w-2xl mx-auto;
+  }
+
+  /* Project Grid */
+  .project-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8;
+  }
+
+  .project-card-link {
+    @apply block no-underline;
+  }
+
+  .project-card {
+    @apply overflow-hidden h-full;
+  }
+
+  .card-image-wrapper {
+    @apply aspect-video overflow-hidden;
+  }
+
+  .card-image-wrapper img {
+    @apply w-full h-full object-cover transition-transform duration-500 hover:scale-110;
+  }
+
+  .card-content {
+    @apply p-6;
+  }
+
+  .card-title {
+    @apply text-2xl font-bold mb-3 text-dark;
+  }
+
+  .card-excerpt {
+    @apply text-gray-600 line-clamp-3;
+  }
+
+  /* Services Grid */
+  .services-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .service-card-link {
+    @apply block no-underline;
+  }
+
+  .service-category {
+    @apply p-6;
+  }
+
+  .service-header {
+    @apply flex items-center gap-3 mb-3;
+  }
+
+  .service-icon {
+    @apply text-primary text-2xl;
+  }
+
+  .service-title {
+    @apply text-xl font-bold text-dark;
+  }
+
+  .service-text {
+    @apply text-gray-600;
+  }
+
+  /* Logo Grid */
+  .logo-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center p-8;
+  }
+
+  .logo-grid img {
+    @apply w-full h-auto max-w-[120px] mx-auto opacity-60 hover:opacity-100 transition-opacity duration-300;
+    @apply filter grayscale hover:grayscale-0;
+  }
+
+  /* Split Section */
+  .split-section {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-12 items-center;
+  }
+
+  .split-section.reverse {
+    @apply md:grid-flow-dense;
+  }
+
+  .split-content {
+    @apply space-y-4;
+  }
+
+  .split-visual {
+    @apply md:col-start-2;
+  }
+
+  .split-section.reverse .split-visual {
+    @apply md:col-start-1;
+  }
+
+  .split-section.reverse .split-content {
+    @apply md:col-start-2;
+  }
+
+  /* Glass Table */
+  .glass-table-container {
+    @apply overflow-hidden;
+  }
+
+  .glass-table {
+    @apply w-full;
+  }
+
+  .glass-table th {
+    @apply text-left p-4 font-bold text-dark border-b border-white/20;
+  }
+
+  .glass-table td {
+    @apply p-4 border-b border-white/10;
+  }
+
+  /* Final CTA */
+  .final-cta-group {
+    @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
+  }
+}
+
+/**
+ * Utility Classes
+ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mb-2 {
+    @apply mb-4;
+  }
+
+  .mb-3 {
+    @apply mb-6;
+  }
+
+  .mt-3 {
+    @apply mt-6;
+  }
+}
