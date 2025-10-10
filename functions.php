@@ -161,6 +161,7 @@ add_action('wp_enqueue_scripts', 'csl_agency_enqueue_scripts');
 --------------------------------------------------------------*/
 require_once get_template_directory() . '/inc/contact-form-shortcode.php';
 require_once get_template_directory() . '/inc/create-thank-you-page.php';
+require_once get_template_directory() . '/inc/seo-meta-tags.php';
 
 /*--------------------------------------------------------------
 # Custom Post Type: Case Studies
