@@ -619,6 +619,40 @@
   .project-card .card-excerpt {
     @apply text-light/60 text-sm flex-1;
   }
+
+  /* Partner Logo Boxes - White Background */
+  .logo-box {
+    @apply bg-white rounded-xl p-6 md:p-8 flex items-center justify-center transition-all duration-300;
+    min-height: 180px;
+  }
+
+  .logo-box:hover {
+    @apply shadow-lg transform -translate-y-1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo-box img {
+    @apply max-w-full h-auto;
+    max-height: 120px;
+    object-fit: contain;
+  }
+
+  /* Logo Grid - White Background Panel */
+  .logo-grid {
+    @apply bg-white rounded-2xl p-8 md:p-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center;
+  }
+
+  .logo-grid img {
+    @apply max-w-full h-auto opacity-80 transition-opacity duration-300;
+    max-height: 60px;
+    object-fit: contain;
+    filter: grayscale(100%);
+  }
+
+  .logo-grid img:hover {
+    @apply opacity-100;
+    filter: grayscale(0%);
+  }
 }
 
 /**
