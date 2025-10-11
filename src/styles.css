@@ -316,6 +316,123 @@
   .final-cta-group {
     @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
   }
+
+  /* Footer Styles */
+  .site-footer {
+    @apply relative mt-24 pt-16 pb-8 px-4 md:px-8;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 0.8) 20%, #1a1a1a 100%);
+  }
+
+  .site-footer::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1) 50%, transparent);
+  }
+
+  .footer-grid {
+    @apply grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-16 mb-12 max-w-7xl mx-auto;
+  }
+
+  .footer-left {
+    @apply space-y-8;
+  }
+
+  .footer-brand-info {
+    @apply space-y-4;
+  }
+
+  .footer-brand-info .site-logo {
+    @apply text-2xl font-bold;
+  }
+
+  .footer-brand-info .site-logo a {
+    @apply text-primary no-underline transition-colors duration-300;
+  }
+
+  .footer-brand-info .site-logo a:hover {
+    @apply text-primary-dark;
+  }
+
+  .footer-tagline {
+    @apply text-light/70 text-base leading-relaxed max-w-md;
+  }
+
+  .footer-newsletter {
+    @apply bg-white/[0.05] backdrop-blur-sm border border-white/10 rounded-xl p-6;
+  }
+
+  .footer-heading {
+    @apply text-lg font-semibold text-light mb-3 uppercase tracking-wider;
+  }
+
+  .footer-newsletter-intro {
+    @apply text-light/60 text-sm mb-4 leading-relaxed;
+  }
+
+  .footer-links-blocks {
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12;
+  }
+
+  .footer-column {
+    @apply space-y-4;
+  }
+
+  .footer-links-list {
+    @apply list-none space-y-3 pl-0;
+  }
+
+  .footer-links-list li {
+    @apply m-0;
+  }
+
+  .footer-links-list a {
+    @apply text-light/70 text-sm no-underline transition-all duration-300 inline-block;
+  }
+
+  .footer-links-list a:hover {
+    @apply text-primary translate-x-1;
+  }
+
+  .footer-bottom-bar {
+    @apply pt-8 border-t border-white/10 text-center text-sm text-light/50;
+  }
+
+  .footer-bottom-bar p {
+    @apply m-0;
+  }
+
+  .footer-bottom-bar a {
+    @apply text-light/50 no-underline transition-colors duration-300;
+  }
+
+  .footer-bottom-bar a:hover {
+    @apply text-primary;
+  }
+
+  .footer-bottom-bar .sep {
+    @apply mx-2 opacity-30;
+  }
+
+  /* Project Card Fixes */
+  .project-card {
+    @apply flex flex-col bg-white/[0.05] backdrop-blur-sm border border-white/10 rounded-xl transition-all duration-300;
+  }
+
+  .project-card:hover {
+    @apply bg-white/[0.08] border-white/20 transform -translate-y-1 shadow-xl;
+  }
+
+  .project-card .card-content {
+    @apply flex-1 flex flex-col;
+  }
+
+  .project-card .card-title {
+    @apply text-light text-xl;
+  }
+
+  .project-card .card-excerpt {
+    @apply text-light/60 text-sm flex-1;
+  }
 }
 
 /**
