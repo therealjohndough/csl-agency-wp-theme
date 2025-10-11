@@ -408,7 +408,7 @@
   }
 
   .catalog-card h3 {
-    @apply text-primary mb-4 pb-3 border-b border-white/10;
+    @apply text-primary mb-4 pb-3 border-b border-white/10 text-lg md:text-xl font-semibold uppercase tracking-wide;
   }
 
   .priced-list {
