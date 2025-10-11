@@ -324,6 +324,7 @@
 
   .lab-icon-wrapper {
     @apply relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30 transition-all duration-500 overflow-hidden;
+    padding-top: 0.5rem;
   }
 
   .lab-value-card:hover .lab-icon-wrapper {
@@ -333,7 +334,7 @@
 
   .lab-icon-wrapper .service-icon {
     @apply text-primary transition-all duration-500;
-    font-size: 6.5rem;
+    font-size: 4.3rem;
     /* Remove square background from lab icons */
     width: auto;
     height: auto;
@@ -344,7 +345,7 @@
 
   @media (min-width: 768px) {
     .lab-icon-wrapper .service-icon {
-      font-size: 8.5rem;
+      font-size: 5.6rem;
     }
   }
 
