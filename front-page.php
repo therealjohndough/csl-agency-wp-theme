@@ -187,7 +187,7 @@ $section( 'values', function() { ?>
           <i class="ph ph-palette service-icon" aria-hidden="true"></i>
           <h3 class="service-title"><?php esc_html_e('Taste is Strategy', 'auragrid'); ?></h3>
         </div>
-        <p class="service-text"><?php esc_html_e('Design isn't decoration—it's direction.', 'auragrid'); ?></p>
+        <p class="service-text"><?php esc_html_e('Design isn\'t decoration—it\'s direction.', 'auragrid'); ?></p>
       </div>
 
       <div class="service-category anim-reveal" style="--stagger-index:2;">
