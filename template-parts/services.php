@@ -31,26 +31,32 @@ get_header(); ?>
                 $services = [
                     'strategy' => [
                         'title' => 'Strategy',
+                        'icon' => 'ph-target',
                         'description' => 'We build a digital playbook around what makes your business unique, helping you to leverage strengths and make a greater impact.'
                     ],
                     'branding-production' => [
                         'title' => 'Branding & Production',
+                        'icon' => 'ph-pen-nib',
                         'description' => 'Combining creative insight and deft design, we develop a visual aesthetic to truly distinguish your brand and make it resonate.'
                     ],
                     'media-buying' => [
                         'title' => 'Media Buying',
+                        'icon' => 'ph-megaphone',
                         'description' => 'We develop data-driven campaigns to target ideal touchpoints, ensuring the right people see the right message.'
                     ],
                     'web-design' => [
                         'title' => 'Web Design',
+                        'icon' => 'ph-code',
                         'description' => 'Using UX-focused frameworks, we create an online journey designed to turn prospects into conversions.'
                     ],
                     'content-social' => [
                         'title' => 'Content & Social',
+                        'icon' => 'ph-article',
                         'description' => 'Providing customized content and organic social curation, we leverage SEO insights to grow audiences through engagement.'
                     ],
                     'lifecycle-marketing' => [
                         'title' => 'Lifecycle Marketing',
+                        'icon' => 'ph-graph',
                         'description' => 'We build lifecycle programs that drive revenue through segmentation, automation, and retargeting.'
                     ],
                 ];
@@ -60,9 +66,9 @@ get_header(); ?>
                     $service_url = home_url('/services/' . $slug . '/');
                     ?>
                     <a href="<?php echo esc_url($service_url); ?>" class="service-card-link anim-reveal" style="--stagger-index: <?php echo (int) $stagger_index; ?>;">
-                        <div class="service-category">
+                        <div class="service-category glass-medium">
                             <div class="service-header">
-                                <span class="service-icon" style="color: var(--color-primary);">■</span>
+                                <i class="ph <?php echo esc_attr($details['icon']); ?> service-icon" aria-hidden="true"></i>
                                 <h3 class="service-title"><?php echo esc_html($details['title']); ?></h3>
                             </div>
                             <p class="service-text"><?php echo esc_html($details['description']); ?></p>
@@ -263,7 +269,7 @@ get_header(); ?>
         <!-- ============================================================= -->
         <section class="container" style="padding-bottom: var(--spacing-section);">
             <div class="note-block anim-reveal" style="max-width: 70ch; color: var(--color-text-secondary);">
-                <p><strong><?php _e('Notes:', 'auragrid'); ?></strong> <?php _e('Save 20% when you pat with BTC. Pricing represents typical starting points. Final quotes depend on complexity, integrations, and timelines. All prices in USD.', 'auragrid'); ?></p>
+                <p><strong><?php _e('Notes:', 'auragrid'); ?></strong> <?php _e('Save 20% when you pay with BTC. Pricing represents typical starting points. Final quotes depend on complexity, integrations, and timelines. All prices in USD.', 'auragrid'); ?></p>
             </div>
         </section>
 
