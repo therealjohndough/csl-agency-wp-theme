@@ -308,34 +308,57 @@
     @apply text-light/80;
   }
 
-  /* Vision & Values - Enhanced Interactive Cards */
-  #values .service-category {
-    @apply relative overflow-hidden;
+  /* Lab Values - Laboratory Theme Design */
+  .lab-values-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12;
   }
 
-  #values .service-category::before {
-    content: '';
-    @apply absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent transition-all duration-300;
+  .lab-value-card {
+    @apply relative p-8 md:p-10 text-center bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl transition-all duration-500;
   }
 
-  #values .service-card-link:hover .service-category::before {
-    @apply w-2;
+  .lab-value-card:hover {
+    @apply bg-white/[0.08] border-primary/30 transform -translate-y-2 shadow-2xl;
+    box-shadow: 0 24px 48px rgba(249, 115, 22, 0.12), 0 0 0 1px rgba(249, 115, 22, 0.1);
   }
 
-  #values .service-card-link:hover .service-category {
-    @apply pl-8;
+  .lab-icon-wrapper {
+    @apply relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30 transition-all duration-500;
   }
 
-  #values .service-header {
-    @apply block mb-4;
+  .lab-value-card:hover .lab-icon-wrapper {
+    @apply border-primary scale-110 rotate-6;
+    box-shadow: 0 12px 32px rgba(249, 115, 22, 0.3);
   }
 
-  #values .service-title {
-    @apply text-xl md:text-2xl mb-3 text-light transition-all duration-300;
+  .lab-icon-wrapper .service-icon {
+    @apply text-5xl md:text-6xl text-primary transition-all duration-500;
   }
 
-  #values .service-text {
-    @apply text-light/70 text-base md:text-lg;
+  .lab-value-card:hover .lab-icon-wrapper .service-icon {
+    animation: lab-icon-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes lab-icon-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  .lab-value-title {
+    @apply text-xl md:text-2xl font-bold mb-4 text-light uppercase tracking-wide transition-all duration-300;
+  }
+
+  .lab-value-card:hover .lab-value-title {
+    @apply text-primary;
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  }
+
+  .lab-value-text {
+    @apply text-light/70 text-base md:text-lg leading-relaxed transition-all duration-300;
+  }
+
+  .lab-value-card:hover .lab-value-text {
+    @apply text-light/90;
   }
 
   /* Staggered Fade-in Animation */

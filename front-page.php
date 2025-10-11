@@ -174,36 +174,36 @@ $section( 'mission', function() { ?>
 /* ---------- 3.5 Vision & Values ---------- */
 $section( 'values', function() { ?>
   <section id="values" class="container">
-    <h2 class="section-heading anim-reveal"><?php esc_html_e('Vision & Values', 'auragrid'); ?></h2>
+    <h2 class="section-heading anim-reveal"><?php esc_html_e('Our Lab Values', 'auragrid'); ?></h2>
 
     <p class="section-intro anim-reveal" style="--stagger-index:0;">
       <strong><?php esc_html_e('Vision:', 'auragrid'); ?></strong>
       <?php esc_html_e('To build a world-class creative agency and ecosystem that attracts innovative minds, A-1 operators, and iconic brands.', 'auragrid'); ?>
     </p>
 
-    <div class="services-grid">
-      <div class="service-category anim-reveal" style="--stagger-index:1;">
-        <div class="service-header">
-          <i class="ph ph-palette service-icon" aria-hidden="true"></i>
-          <h3 class="service-title"><?php esc_html_e('Taste is Strategy', 'auragrid'); ?></h3>
+    <div class="lab-values-grid">
+      <div class="lab-value-card anim-reveal" style="--stagger-index:1;">
+        <div class="lab-icon-wrapper">
+          <i class="ph ph-flask service-icon" aria-hidden="true"></i>
         </div>
-        <p class="service-text"><?php esc_html_e('Design isn\'t decoration—it\'s direction.', 'auragrid'); ?></p>
+        <h3 class="lab-value-title"><?php esc_html_e('Taste is Strategy', 'auragrid'); ?></h3>
+        <p class="lab-value-text"><?php esc_html_e('Design isn\'t decoration—it\'s direction.', 'auragrid'); ?></p>
       </div>
 
-      <div class="service-category anim-reveal" style="--stagger-index:2;">
-        <div class="service-header">
-          <i class="ph ph-lightbulb service-icon" aria-hidden="true"></i>
-          <h3 class="service-title"><?php esc_html_e('Clarity is Currency', 'auragrid'); ?></h3>
+      <div class="lab-value-card anim-reveal" style="--stagger-index:2;">
+        <div class="lab-icon-wrapper">
+          <i class="ph ph-test-tube service-icon" aria-hidden="true"></i>
         </div>
-        <p class="service-text"><?php esc_html_e('Clear brands grow.', 'auragrid'); ?></p>
+        <h3 class="lab-value-title"><?php esc_html_e('Clarity is Currency', 'auragrid'); ?></h3>
+        <p class="lab-value-text"><?php esc_html_e('Clear brands grow.', 'auragrid'); ?></p>
       </div>
 
-      <div class="service-category anim-reveal" style="--stagger-index:3;">
-        <div class="service-header">
-          <i class="ph ph-handshake service-icon" aria-hidden="true"></i>
-          <h3 class="service-title"><?php esc_html_e('Collaboration Over Control', 'auragrid'); ?></h3>
+      <div class="lab-value-card anim-reveal" style="--stagger-index:3;">
+        <div class="lab-icon-wrapper">
+          <i class="ph ph-atom service-icon" aria-hidden="true"></i>
         </div>
-        <p class="service-text"><?php esc_html_e('We co-create, not babysit.', 'auragrid'); ?></p>
+        <h3 class="lab-value-title"><?php esc_html_e('Collaboration Over Control', 'auragrid'); ?></h3>
+        <p class="lab-value-text"><?php esc_html_e('We co-create, not babysit.', 'auragrid'); ?></p>
       </div>
     </div>
   </section>
