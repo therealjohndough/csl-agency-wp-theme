@@ -211,37 +211,27 @@ $section( 'values', function() { ?>
 
 
 /* ---------- 4. Services ---------- */
-$section( 'services', function() {
-  // Icon mapping for services
-  $service_icons = [
-    'strategy' => 'ph-target',
-    'branding' => 'ph-pen-nib',
-    'production' => 'ph-film-slate',
-    'web design' => 'ph-code',
-    'content' => 'ph-article',
-    'social' => 'ph-chat-circle-dots',
-    'media buying' => 'ph-megaphone',
-    'lifecycle' => 'ph-graph',
-    'marketing' => 'ph-trend-up',
-    'default' => 'ph-lightning'
-  ];
-
-  function get_service_icon($title, $icon_map) {
-    $title_lower = strtolower($title);
-    foreach ($icon_map as $keyword => $icon) {
-      if (stripos($title_lower, $keyword) !== false) {
-        return $icon;
-      }
-    }
-    return $icon_map['default'];
-  }
-?>
+$section( 'services', function() { ?>
   <section id="services" class="container">
     <h2 class="section-heading anim-reveal">
       <?php echo esc_html( get_theme_mod( 'csl_services_heading', 'Capabilities' ) ); ?>
     </h2>
     <div class="services-grid">
       <?php
+        // Icon mapping for services
+        $service_icons = [
+          'strategy' => 'ph-target',
+          'branding' => 'ph-pen-nib',
+          'production' => 'ph-film-slate',
+          'web design' => 'ph-code',
+          'content' => 'ph-article',
+          'social' => 'ph-chat-circle-dots',
+          'media buying' => 'ph-megaphone',
+          'lifecycle' => 'ph-graph',
+          'marketing' => 'ph-trend-up',
+          'default' => 'ph-lightning'
+        ];
+
         $services = new WP_Query([
           'post_type'      => 'page',
           'posts_per_page' => 6,
@@ -253,7 +243,16 @@ $section( 'services', function() {
         if ( $services->have_posts() ) :
           while ( $services->have_posts() ) : $services->the_post();
             $i++;
-            $icon_class = get_service_icon(get_the_title(), $service_icons);
+
+            // Get icon based on title
+            $icon_class = 'ph-lightning'; // default
+            $title_lower = strtolower(get_the_title());
+            foreach ($service_icons as $keyword => $icon) {
+              if (stripos($title_lower, $keyword) !== false) {
+                $icon_class = $icon;
+                break;
+              }
+            }
           ?>
             <a href="<?php the_permalink(); ?>" class="service-card-link anim-reveal" style="--stagger-index:<?php echo $i; ?>">
               <div class="service-category glass-medium">
