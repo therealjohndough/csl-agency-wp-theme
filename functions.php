@@ -79,6 +79,14 @@ function csl_agency_enqueue_scripts() {
     require_once get_template_directory() . '/inc/vite-helper.php';
     csl_vite_asset();
 
+    // Phosphor Icons - Modern, clean icon library
+    wp_enqueue_style(
+        'phosphor-icons',
+        'https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css',
+        [],
+        '2.0.3'
+    );
+
     // Legacy main stylesheet (keeping for backward compatibility)
     $style_path = get_stylesheet_directory() . '/style.css';
     $css_version = is_file($style_path) ? ($theme_version . '.' . filemtime($style_path)) : $theme_version;

@@ -184,13 +184,15 @@ $section( 'values', function() { ?>
     <div class="services-grid">
       <div class="service-category anim-reveal" style="--stagger-index:1;">
         <div class="service-header">
+          <i class="ph ph-palette service-icon" aria-hidden="true"></i>
           <h3 class="service-title"><?php esc_html_e('Taste is Strategy', 'auragrid'); ?></h3>
         </div>
-        <p class="service-text"><?php esc_html_e('Design isn’t decoration—it’s direction.', 'auragrid'); ?></p>
+        <p class="service-text"><?php esc_html_e('Design isn't decoration—it's direction.', 'auragrid'); ?></p>
       </div>
 
       <div class="service-category anim-reveal" style="--stagger-index:2;">
         <div class="service-header">
+          <i class="ph ph-lightbulb service-icon" aria-hidden="true"></i>
           <h3 class="service-title"><?php esc_html_e('Clarity is Currency', 'auragrid'); ?></h3>
         </div>
         <p class="service-text"><?php esc_html_e('Clear brands grow.', 'auragrid'); ?></p>
@@ -198,6 +200,7 @@ $section( 'values', function() { ?>
 
       <div class="service-category anim-reveal" style="--stagger-index:3;">
         <div class="service-header">
+          <i class="ph ph-handshake service-icon" aria-hidden="true"></i>
           <h3 class="service-title"><?php esc_html_e('Collaboration Over Control', 'auragrid'); ?></h3>
         </div>
         <p class="service-text"><?php esc_html_e('We co-create, not babysit.', 'auragrid'); ?></p>
@@ -208,7 +211,31 @@ $section( 'values', function() { ?>
 
 
 /* ---------- 4. Services ---------- */
-$section( 'services', function() { ?>
+$section( 'services', function() {
+  // Icon mapping for services
+  $service_icons = [
+    'strategy' => 'ph-target',
+    'branding' => 'ph-pen-nib',
+    'production' => 'ph-film-slate',
+    'web design' => 'ph-code',
+    'content' => 'ph-article',
+    'social' => 'ph-chat-circle-dots',
+    'media buying' => 'ph-megaphone',
+    'lifecycle' => 'ph-graph',
+    'marketing' => 'ph-trend-up',
+    'default' => 'ph-lightning'
+  ];
+
+  function get_service_icon($title, $icon_map) {
+    $title_lower = strtolower($title);
+    foreach ($icon_map as $keyword => $icon) {
+      if (stripos($title_lower, $keyword) !== false) {
+        return $icon;
+      }
+    }
+    return $icon_map['default'];
+  }
+?>
   <section id="services" class="container">
     <h2 class="section-heading anim-reveal">
       <?php echo esc_html( get_theme_mod( 'csl_services_heading', 'Capabilities' ) ); ?>
@@ -224,10 +251,16 @@ $section( 'services', function() { ?>
         ]);
         $i = 0;
         if ( $services->have_posts() ) :
-          while ( $services->have_posts() ) : $services->the_post(); $i++; ?>
+          while ( $services->have_posts() ) : $services->the_post();
+            $i++;
+            $icon_class = get_service_icon(get_the_title(), $service_icons);
+          ?>
             <a href="<?php the_permalink(); ?>" class="service-card-link anim-reveal" style="--stagger-index:<?php echo $i; ?>">
               <div class="service-category glass-medium">
-                <div class="service-header"><span class="service-icon">■</span><h3 class="service-title"><?php the_title(); ?></h3></div>
+                <div class="service-header">
+                  <i class="ph <?php echo esc_attr($icon_class); ?> service-icon" aria-hidden="true"></i>
+                  <h3 class="service-title"><?php the_title(); ?></h3>
+                </div>
                 <p class="service-text"><?php echo get_the_excerpt(); ?></p>
               </div>
             </a>

@@ -60,10 +60,10 @@
         <nav class="footer-column" aria-labelledby="footer-connect">
           <h4 id="footer-connect" class="footer-heading">Connect</h4>
           <ul class="footer-links-list">
-            <li><a href="mailto:dough@casestudy-labs.com">dough@casestudy-labs.com</a></li>
-            <li><a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" rel="noopener">Schedule a Discovery Call</a></li>
-            <li><a href="https://linkedin.com/company/case-study-labs" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://instagram.com/case_study_labs" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="mailto:dough@casestudy-labs.com"><i class="ph ph-envelope" aria-hidden="true"></i> dough@casestudy-labs.com</a></li>
+            <li><a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" rel="noopener"><i class="ph ph-calendar-check" aria-hidden="true"></i> Schedule a Discovery Call</a></li>
+            <li><a href="https://linkedin.com/company/case-study-labs" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn</a></li>
+            <li><a href="https://instagram.com/case_study_labs" target="_blank" rel="noopener"><i class="ph ph-instagram-logo" aria-hidden="true"></i> Instagram</a></li>
           </ul>
         </nav>
 

@@ -487,11 +487,19 @@
   }
 
   .footer-links-list a {
-    @apply text-light/70 text-sm no-underline transition-all duration-300 inline-block;
+    @apply text-light/70 text-sm no-underline transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .footer-links-list a i {
+    @apply text-primary/70 text-base transition-all duration-300;
   }
 
   .footer-links-list a:hover {
     @apply text-primary translate-x-1;
+  }
+
+  .footer-links-list a:hover i {
+    @apply text-primary scale-110;
   }
 
   .footer-bottom-bar {
