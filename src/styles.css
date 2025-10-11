@@ -323,7 +323,7 @@
   }
 
   .lab-icon-wrapper {
-    @apply relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30 transition-all duration-500;
+    @apply relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30 transition-all duration-500 overflow-hidden;
   }
 
   .lab-value-card:hover .lab-icon-wrapper {
@@ -332,7 +332,20 @@
   }
 
   .lab-icon-wrapper .service-icon {
-    @apply text-5xl md:text-6xl text-primary transition-all duration-500;
+    @apply text-primary transition-all duration-500;
+    font-size: 6.5rem;
+    /* Remove square background from lab icons */
+    width: auto;
+    height: auto;
+    background: none;
+    border: none;
+    border-radius: 0;
+  }
+
+  @media (min-width: 768px) {
+    .lab-icon-wrapper .service-icon {
+      font-size: 8.5rem;
+    }
   }
 
   .lab-value-card:hover .lab-icon-wrapper .service-icon {
